@@ -36,7 +36,7 @@ const DownloadCards = () => {
 
       } catch (error) {
         console.error("Error fetching data:", error);
-        return { data: [], meta: { pagination: { total: 0 } } };
+        return { data: [] };
       }
     }
 
