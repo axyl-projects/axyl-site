@@ -94,7 +94,7 @@ const DownloadCards = () => {
     setDownloadEnabled(false)
     setTimeout(() => {
       setDownloadEnabled(true);
-    }, 3000);
+    }, 10000);
   };
   
 
