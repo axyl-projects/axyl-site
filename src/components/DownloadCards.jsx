@@ -73,6 +73,16 @@ const DownloadCards = () => {
           a.click(); // Programmatically click the anchor to trigger the download
           window.URL.revokeObjectURL(url); // Release the Blob URL
           document.body.removeChild(a); // Remove the anchor from the document
+          // increment download counter
+          setDownloadItemsData((prevData) => {
+            return prevData.map((item, index) => {
+              if (index === activeModal) {
+                // Increment the downloadsCount for the active modal
+                return { ...item, downloadsCount: (item.downloadsCount || 0) + 1 };
+              }
+              return item; // Return the item unchanged if it's not active
+            });
+          });
         })
         .catch((error) => {
           console.error("Error downloading the file:", error); // Handle errors
@@ -150,7 +160,7 @@ const DownloadCards = () => {
                         <div className="text-center leading-none">Total downloads:<br/><strong className="text-2xl">{item.downloadsCount}</strong></div>}
                       <button 
                         disabled={!downloadEnabled}
-                        className={`${downloadEnabled ? "" : "cursor-not-allowed"} flex items-center justify-center gap-4 bg-gray-800 dark:hover:bg-gray-700 text-yellow-400 dark:text-indigo-400 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-900 downloadButtonImage`}
+                        className={`${downloadEnabled ? "cursor-pointer" : "cursor-not-allowed"} flex items-center justify-center gap-4 bg-gray-800 dark:hover:bg-gray-700 text-yellow-400 dark:text-indigo-400 px-4 py-2 rounded-lg hover:bg-gray-900 downloadButtonImage`}
                         onClick={(e) => {
                           e.stopPropagation(); // Prevent card flip
                           // Perform the download action here
