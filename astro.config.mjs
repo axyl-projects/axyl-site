@@ -18,7 +18,7 @@ export default defineConfig({
         light: '/src/assets/athena-light.svg',
         dark: '/src/assets/athena-dark.svg',
       },
-      customCss: process.env.NO_GRADIENTS ? [	'./axyl-site/src/styles/_global.css'] : ['./axyl-site/src/styles/landing.css', 	'./axyl-site/src/styles/_global.css'],
+      customCss: process.env.NO_GRADIENTS ? [	'./src/styles/_global.css'] : ['./src/styles/landing.css', 	'./src/styles/_global.css'],
       social: {
         github: 'https://github.com/Athena-OS',
         instagram: 'https://www.instagram.com/athenaos_sec',
