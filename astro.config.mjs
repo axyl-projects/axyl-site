@@ -27,7 +27,10 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/Axyl-projects/axyl-site/tree/main/',
       },
-      lastUpdated: true,
+
+      {
+        lastUpdated: true,
+      }
       //sidebar: [
         //{
         //  label: 'Getting Started',
