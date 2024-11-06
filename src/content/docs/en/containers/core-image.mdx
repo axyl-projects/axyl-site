@@ -1,11 +1,11 @@
 ---
-title: Athena OS Core Image
-description: Official Athena OS core image.
+title: AxylOS Core Image
+description: Official AxylOS core image.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 
-Athena OS container brings you to live a funny hacking experience in a containerized environment:
+AxylOS container brings you to live a funny hacking experience in a containerized environment:
 
 * Select your favourite **InfoSec role** between **Bug Bounty Hunter**, **Red Teamer**, **OSINT Specialist** and **much more**
 * Play **Hack The Box** machines for improving your skills
@@ -13,17 +13,17 @@ Athena OS container brings you to live a funny hacking experience in a container
 * Make your **Capture The Flag** or **ethical hacking** activity efficient
 
 <p align="center">
-  <a href="https://hub.docker.com/u/athenaos"><img src="https://user-images.githubusercontent.com/83867734/224526828-b4f2a470-d539-494d-9ac0-34568a75af3a.png" width="150" height="128" /></a>
+  <a href="https://hub.docker.com/u/AxylOSos"><img src="https://user-images.githubusercontent.com/83867734/224526828-b4f2a470-d539-494d-9ac0-34568a75af3a.png" width="150" height="128" /></a>
 </p>
 <h5 align="center">
-Click Docker icon above to explore Athena OS Docker containers!
+Click Docker icon above to explore AxylOS Docker containers!
 </h5>
 
 ## Usage
 
 ![image](@assets/images/container-motd.png)
 
-Athena OS container has been developed in order to be run also by podman. The choice to use podman comes from its advantages over docker, one of most important: security.
+AxylOS container has been developed in order to be run also by podman. The choice to use podman comes from its advantages over docker, one of most important: security.
 
 According to your preference, install `docker` and `docker-compose` packages or `podman` package for your Linux environment.
 
@@ -36,7 +36,7 @@ in order to allow podman to search for images in Docker Hub.
 
 ### Hack The Box API Token
 
-Athena OS container allows you to learn and play on Hack The Box platform. It is possible to access to Hack The Box by using your App Token. Retrieve your App Token from the Hack The Box website in your Profile Settings.
+AxylOS container allows you to learn and play on Hack The Box platform. It is possible to access to Hack The Box by using your App Token. Retrieve your App Token from the Hack The Box website in your Profile Settings.
 
 ### Docker
 
@@ -51,8 +51,8 @@ The `docker-compose.yml` file should have the following content:
 version: '3.4'
 
 services:
-  athena:
-    image: athenaos/core
+  AxylOS:
+    image: AxylOSos/core
     cap_add:
       - net_admin
     devices:
@@ -74,43 +74,43 @@ and the `htb-api-file` must be in the same directory, otherwise you can change i
 
 Run the container by:
 ```shell
-sudo docker-compose run athena
+sudo docker-compose run AxylOS
 ```
 
 #### docker run
 
 ```bash
 docker run -ti \
-  --name athena \
+  --name AxylOS \
   --volume ./htb-api-file:/run/secrets/htb-api:ro \
   --cap-add NET_ADMIN \
   --device /dev/net/tun \
   --sysctl net.ipv6.conf.all.disable_ipv6=0 \
   --restart unless-stopped \
-  docker.io/athenaos/core:latest
+  docker.io/AxylOSos/core:latest
 ```
 or
 ```shell
-docker run -ti --name athena --volume ./htb-api-file:/run/secrets/htb-api:ro --cap-add NET_ADMIN --device /dev/net/tun --sysctl net.ipv6.conf.all.disable_ipv6=0 --restart unless-stopped docker.io/athenaos/core:latest
+docker run -ti --name AxylOS --volume ./htb-api-file:/run/secrets/htb-api:ro --cap-add NET_ADMIN --device /dev/net/tun --sysctl net.ipv6.conf.all.disable_ipv6=0 --restart unless-stopped docker.io/AxylOSos/core:latest
 ```
 
 In case you exit the container and need to re-enter, run:
 ```shell
-docker exec --user athena -ti athena /bin/zsh
+docker exec --user AxylOS -ti AxylOS /bin/zsh
 ```
 In case the container is not running, run:
 ```shell
-docker start athena
+docker start AxylOS
 ```
 
 For stopping the container, run:
 ```shell
-docker stop athena
+docker stop AxylOS
 ```
 
 For deleting the container, run:
 ```shell
-docker container rm athena
+docker container rm AxylOS
 ```
 
 ### Podman
@@ -128,42 +128,42 @@ You can run the container by `podman run`.
 
 ```shell
 podman run -ti \
-  --name athena \
+  --name AxylOS \
   --secret htb-api \
   --cap-add NET_RAW \
   --cap-add NET_ADMIN \
   --device /dev/net/tun \
   --restart unless-stopped \
-  docker.io/athenaos/core:latest
+  docker.io/AxylOSos/core:latest
 ```
 or
 ```shell
-podman run -ti --name athena --secret htb-api --cap-add NET_RAW --cap-add NET_ADMIN --device /dev/net/tun --restart unless-stopped docker.io/athenaos/core:latest
+podman run -ti --name AxylOS --secret htb-api --cap-add NET_RAW --cap-add NET_ADMIN --device /dev/net/tun --restart unless-stopped docker.io/AxylOSos/core:latest
 ```
 Podman will automatically replicate `/etc/hosts` and `/etc/hostname` files of your host. For preventing this, add `--no-hosts` argument to the `podman run` command above.
 
 In case you exit the container and need to re-enter, run:
 ```shell
-podman exec --user athena -ti athena /bin/zsh
+podman exec --user AxylOS -ti AxylOS /bin/zsh
 ```
 In case the container is not running, run:
 ```shell
-podman start athena
+podman start AxylOS
 ```
 
 For stopping the container, run:
 ```shell
-podman stop athena
+podman stop AxylOS
 ```
 
 For deleting the container, run:
 ```shell
-podman container rm athena
+podman container rm AxylOS
 ```
 ### Default Credentials
 
 ```
-athena:athena
+AxylOS:AxylOS
 ```
 
 ## Parameters
@@ -183,9 +183,9 @@ Below are the instructions for updating containers:
 
 ### Via Podman Run
 
-* Update the image: `podman pull docker.io/athenaos/core:latest`
-* Stop the running container: `podman stop athena`
-* Delete the container: `podman rm athena`
+* Update the image: `podman pull docker.io/AxylOSos/core:latest`
+* Stop the running container: `podman stop AxylOS`
+* Delete the container: `podman rm AxylOS`
 * Recreate a new container with the same podman run parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
 * You can also remove the old dangling images: `podman image prune`
 
@@ -194,13 +194,13 @@ Below are the instructions for updating containers:
 If you want to make local modifications to these images for development purposes or just to customize the logic:
 
 ```shell
-git clone https://github.com/Athena-OS/athena-core-docker.git
-cd athena-core-docker
+git clone https://github.com/AxylOS-OS/AxylOS-core-docker.git
+cd AxylOS-core-docker
 docker build \
   --no-cache \
   --network host \
   --pull \
-  -t docker.io/athenaos/core:latest .
+  -t docker.io/AxylOSos/core:latest .
 ```
 
 For pushing to Docker Hub, first login to it:
@@ -212,7 +212,7 @@ docker login
 and then:
 
 ```shell
-docker push athenaos/core:latest
+docker push AxylOSos/core:latest
 ```
 
 The ARM variants can be built on x86_64 hardware using `multiarch/qemu-user-static`

@@ -10,17 +10,17 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 This document shows a list of test cases that can be used to check the correctness of the environment.
 
 ### Testing GitHub workflow locally
-Purpose of this chapter is to test a GitHub workflow of Athena repository in a local machine.
+Purpose of this chapter is to test a GitHub workflow of AxylOS repository in a local machine.
 
 Install [act](https://archlinux.org/packages/extra/x86_64/act/) by:
 ```shell
 sudo pacman -S act
 ```
 
-Clone Athena repository:
+Clone AxylOS repository:
 ```shell
-git clone https://github.com/Athena-OS/athena
-cd athena
+git clone https://github.com/AxylOS-OS/AxylOS
+cd AxylOS
 ```
 Be sure the workflow `.yml` file to test is in `.github/workflows` folder:
 ```shell
@@ -41,8 +41,8 @@ act -l
 ```
 The output would be similar to:
 ```
-INFO[0000] Using docker host 'unix:///run/user/1000/podman/podman.sock', and daemon socket 'unix:///run/user/1000/podman/podman.sock' 
-Stage  Job ID                Job name                                    Workflow name                Workflow file          Events                    
+INFO[0000] Using docker host 'unix:///run/user/1000/podman/podman.sock', and daemon socket 'unix:///run/user/1000/podman/podman.sock'
+Stage  Job ID                Job name                                    Workflow name                Workflow file          Events
 0      build                 build                                       Build ArchISO Stable         archiso.yml            workflow_dispatch,schedule
 0      docker-publish        docker-publish                              Scheduled Container Publish  builder-container.yml  schedule,workflow_dispatch
 0      installation-testing  ${{ matrix.config_installer.job_name }}     System Installation Testing  install.yml            workflow_dispatch,schedule
@@ -63,8 +63,8 @@ act -l -W .github/workflows/install.yml
 ```
 The output should be:
 ```
-INFO[0000] Using docker host 'unix:///run/user/1000/podman/podman.sock', and daemon socket 'unix:///run/user/1000/podman/podman.sock' 
-Stage  Job ID                Job name                                 Workflow name                Workflow file  Events                    
+INFO[0000] Using docker host 'unix:///run/user/1000/podman/podman.sock', and daemon socket 'unix:///run/user/1000/podman/podman.sock'
+Stage  Job ID                Job name                                 Workflow name                Workflow file  Events
 0      installation-testing  ${{ matrix.config_installer.job_name }}  System Installation Testing  install.yml    workflow_dispatch,schedule
 ```
 To validate only workflow correctness, run the command by `-n/--dryrun` argument:
@@ -86,7 +86,7 @@ If your workflow uses variables or secrets set on GitHub, it will fail because c
 :::
 
 ### Manual environment installation
-Boot into Athena Live Environment by using Athena ISO.
+Boot into AxylOS Live Environment by using AxylOS ISO.
 
 Create the needed partitions.
 ```shell
@@ -206,7 +206,7 @@ echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
-echo "athenaos" > /etc/hostname
+echo "AxylOSos" > /etc/hostname
 echo "KEYMAP=us" > /etc/vconsole.conf
 ```
 Edit `/etc/mkinitcpio.conf` and edit `HOOKS` as:
@@ -245,20 +245,20 @@ Add Nix channels as:
 nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
 nix-channel --update
 ```
-Then, generate the hardware configuration and get the Athena Nix configuration:
+Then, generate the hardware configuration and get the AxylOS Nix configuration:
 ```shell
 mkdir -p /mnt/etc/nixos
 nix-shell -p nixos-install-tools --command "nixos-generate-config --root /mnt"
-curl -o /tmp/athena-nix.zip https://codeload.github.com/Athena-OS/athena-nix/zip/refs/heads/main
-unzip /tmp/athena-nix.zip -d /tmp/
-cp -rf /tmp/athena-nix-main/nixos/home-manager /tmp/athena-nix-main/nixos/hosts /tmp/athena-nix-main/nixos/modules /tmp/athena-nix-main/nixos/pkgs /tmp/athena-nix-main/nixos/users /tmp/athena-nix-main/nixos/configuration.nix /tmp/athena-nix-main/nixos/default.nix /mnt/etc/nixos/
+curl -o /tmp/AxylOS-nix.zip https://codeload.github.com/AxylOS-OS/AxylOS-nix/zip/refs/heads/main
+unzip /tmp/AxylOS-nix.zip -d /tmp/
+cp -rf /tmp/AxylOS-nix-main/nixos/home-manager /tmp/AxylOS-nix-main/nixos/hosts /tmp/AxylOS-nix-main/nixos/modules /tmp/AxylOS-nix-main/nixos/pkgs /tmp/AxylOS-nix-main/nixos/users /tmp/AxylOS-nix-main/nixos/configuration.nix /tmp/AxylOS-nix-main/nixos/default.nix /mnt/etc/nixos/
 sed -i "s/\/etc\/nixos\/hardware-configuration.nix/.\/hardware-configuration.nix/g" /mnt/etc/nixos/configuration.nix
 ```
 If you are in a GRUB BIOS/Legacy environment, run:
 ```shell
 sed -i "s/bootloader = \"systemd\"/bootloader = \"grub\"/g" /mnt/etc/nixos/configuration.nix
 ```
-Finally, run the Athena Nix installation:
+Finally, run the AxylOS Nix installation:
 ```shell
 nix-shell -p nixos-install-tools --run "nixos-install --no-root-password --cores 2 --max-jobs 16 --keep-going"
 ```

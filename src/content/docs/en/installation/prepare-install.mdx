@@ -1,20 +1,20 @@
 ---
 title: Installation prepare
-description: How to prepare Athena OS for installation.
+description: How to prepare AxylOS for installation.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The following section will guide you through the steps to prepare all the elements for installing Athena OS.
+The following section will guide you through the steps to prepare all the elements for installing AxylOS.
 
 ## System Requirements
 
-Athena OS is currently supported on amd64 (x86_64/64-bit) platforms and can be installed as **Athena Arch** (Arch-based system) or **Athena Nix** (NixOS-based system).
+AxylOS is currently supported on amd64 (x86_64/64-bit) platforms and can be installed as **AxylOS Arch** (Arch-based system) or **AxylOS Nix** (NixOS-based system).
 
 <Tabs>
-<TabItem label="Athena Arch">
+<TabItem label="AxylOS Arch">
 The minimum requirements are:
 * 20GB hard disk space for installation.
 * 2GB RAM.
@@ -25,7 +25,7 @@ The recommended hardware specification for a smooth experience are:
 * At least 4GB of RAM.
 * At least 2 cores.
 </TabItem>
-<TabItem label="Athena Nix">
+<TabItem label="AxylOS Nix">
 The minimum requirements are:
 * 30GB hard disk space for installation.
 * 4GB RAM + 4GB of swap partition.
@@ -37,28 +37,28 @@ The recommended hardware specification for a smooth experience are:
 * At least 2 cores.
 
 :::tip
-During Athena Nix install, if the system freezes for some minutes (just look the frozen system clock), try to increase resources, for example assign more swap space.
+During AxylOS Nix install, if the system freezes for some minutes (just look the frozen system clock), try to increase resources, for example assign more swap space.
 :::
 
 :::tip
-To install Athena Nix with lower resources, just follow [Installing by NixOS](/en/installation/install-nixos/) guide. This method allows you to install first vanilla NixOS, and after system installation, install Athena Nix over it.
+To install AxylOS Nix with lower resources, just follow [Installing by NixOS](/en/installation/install-nixos/) guide. This method allows you to install first vanilla NixOS, and after system installation, install AxylOS Nix over it.
 :::
 </TabItem>
 </Tabs>
 
 ## Preparing for the Installation
 
-Before installing Athena OS on your endpoint, you need a set of tasks to prepare.
+Before installing AxylOS on your endpoint, you need a set of tasks to prepare.
 
 ## Download the Image
 
-Download Athena OS as described in [Downloading Athena OS](/en/getting-started/download/) chapter.
+Download AxylOS as described in [Downloading AxylOS](/en/getting-started/download/) chapter.
 
 ## Prepare Baremetal Installation
 
-### Creating a Bootable Athena USB drive
+### Creating a Bootable AxylOS USB drive
 
-You can use several software for creating a bootable Athena USB drive on Linux or Windows. The USB drive must be atleast 4 GB of size.
+You can use several software for creating a bootable AxylOS USB drive on Linux or Windows. The USB drive must be atleast 4 GB of size.
 
 #### Creating a Bootable USB drive on Linux
 
@@ -66,16 +66,16 @@ You can use several software for creating a bootable Athena USB drive on Linux o
 
 1. Plug your USB drive into your available USB port.
 2. Download [Balena Etcher](https://etcher.balena.io/). If you download the `.AppImage` file, assign executable permission by `chmod +x balenaEtcher-<version>-<arch>.AppImage` and run it by `./balenaEtcher-<version>-<arch>.AppImage`.
-3. Click **Flash from file** and select the Athena ISO image file.
+3. Click **Flash from file** and select the AxylOS ISO image file.
 4. Click **Select target** and choose the label of your plugged USB drive.
-5. Click **Flash** for starting the process. 
+5. Click **Flash** for starting the process.
    :::note
    You could be asked for administration privileges, so insert credentials and press **Authenticate**.
    :::
 
 ![Balena Etcher](@assets/images/linux-etcher.png)
 
-At the end of flash process you will get a **Flash Completed!** message. Close Balena Etcher and reboot the system for booting into Athena OS.
+At the end of flash process you will get a **Flash Completed!** message. Close Balena Etcher and reboot the system for booting into AxylOS.
 :::note
 Be sure to have the USB drive **boot priority** over other drives in the BIOS.
 :::
@@ -84,9 +84,9 @@ Be sure to have the USB drive **boot priority** over other drives in the BIOS.
 
 1. Plug your USB drive into your available USB port.
 2. Detect the drive device label of the plugged USB drive by `sudo fdisk -l` (i.e., it could be `/dev/sdX` where `X` is `a`, `b`, and so on).
-3. Run `sudo dd bs=4M if=athena-<file-version>-<arch>.iso of=/dev/sdX status=progress oflag=sync` (replace `/dev/sdX` by the drive device label of your plugged USB drive).
+3. Run `sudo dd bs=4M if=AxylOS-<file-version>-<arch>.iso of=/dev/sdX status=progress oflag=sync` (replace `/dev/sdX` by the drive device label of your plugged USB drive).
 
-`dd` command` will now copy the contents of the ISO file over to your USB driive. Once done, you’re ready to use the USB drive as Athena OS installation media. Reboot the system for booting into Athena OS.
+`dd` command` will now copy the contents of the ISO file over to your USB driive. Once done, you’re ready to use the USB drive as AxylOS installation media. Reboot the system for booting into AxylOS.
 :::note
 Be sure to have the USB drive **boot priority** over other drives in the BIOS.
 :::
@@ -97,7 +97,7 @@ Be sure to have the USB drive **boot priority** over other drives in the BIOS.
 
 1. Plug your USB drive into your available USB port.
 2. Download [Balena Etcher](https://etcher.balena.io/) and install it, or run the portable version.
-3. Click **Flash from file** and select the Athena ISO image file.
+3. Click **Flash from file** and select the AxylOS ISO image file.
 4. Click **Select target** and choose the label of your plugged USB drive.
 5. Click **Flash** for starting the process.
    :::note
@@ -106,7 +106,7 @@ Be sure to have the USB drive **boot priority** over other drives in the BIOS.
 
 ![Balena Etcher](@assets/images/windows-etcher.png)
 
-At the end of flash process you will get a **Flash Completed!** message. Close Balena Etcher and reboot the system for booting into Athena OS.
+At the end of flash process you will get a **Flash Completed!** message. Close Balena Etcher and reboot the system for booting into AxylOS.
 :::note
 Be sure to have the USB drive **boot priority** over other drives in the BIOS.
 :::
@@ -116,7 +116,7 @@ Be sure to have the USB drive **boot priority** over other drives in the BIOS.
 1. Plug your USB drive into your available USB port.
 2. Download [Rufus](https://rufus.ie/) and install it, or run the portable version.
 3. On **Device**, click on the dropdown list and select your plugged USB drive.
-4. On **Boot selection**, click on **SELECT** and locate the Athena ISO image file.
+4. On **Boot selection**, click on **SELECT** and locate the AxylOS ISO image file.
 5. Click **START**.
 
 ![Balena Etcher](@assets/images/windows-rufus.png)
@@ -125,14 +125,14 @@ Be sure to have the USB drive **boot priority** over other drives in the BIOS.
 
 ![Balena Etcher](@assets/images/windows-rufus-confirm.png)
 
-At the end of flash process you will get **READY** status. Close Rufus and reboot the system for booting into Athena OS.
+At the end of flash process you will get **READY** status. Close Rufus and reboot the system for booting into AxylOS.
 :::note
 Be sure to have the USB drive **boot priority** over other drives in the BIOS.
 :::
 
 ## Prepare Virtual Machine Installation
 
-If you want to deploy Athena OS as virtual machine, refers to the related documentation.
+If you want to deploy AxylOS as virtual machine, refers to the related documentation.
 
 <CardGrid>
   <LinkCard title="Installing as guest in VMware" href="/en/installation/install-guest-vmware/" />

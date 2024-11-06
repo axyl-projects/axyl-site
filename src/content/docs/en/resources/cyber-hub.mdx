@@ -1,17 +1,17 @@
 ---
-title: Athena Cyber Hub
+title: AxylOS Cyber Hub
 description: Running vulnerable labs and Cyber Security platforms.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 
-[Athena Cyber Hub (ACH)](https://github.com/Athena-OS/athena-cyber-hub) is a forked version of [Vanilla Control Center](https://github.com/Vanilla-OS/vanilla-control-center) with several differences in order to fit the needs of Cyber Security users on Athena OS.
+[AxylOS Cyber Hub (ACH)](https://github.com/AxylOS-OS/AxylOS-cyber-hub) is a forked version of [Vanilla Control Center](https://github.com/Vanilla-OS/vanilla-control-center) with several differences in order to fit the needs of Cyber Security users on AxylOS.
 It is intended to run vulnerable laboratories for learning purposes and cyber security platforms for offensive and defensive activities.
 
 ![Cyber Hub](@assets/images/cyber-hub.png)
 
 ## Usage
-**Athena OS Cyber Hub** can be run by clicking its icon in the Application List or running `athena-cyber-hub` in the terminal.
+**AxylOS Cyber Hub** can be run by clicking its icon in the Application List or running `AxylOS-cyber-hub` in the terminal.
 
 It provides three sections:
 * Cyber Platform Center
@@ -27,16 +27,16 @@ Wazuh is an open source security platform that provides an **unified XDR and SIE
 
 It consists of an **endpoint security agent**, deployed to the monitored systems, and a **management server**, which collects and analyzes data gathered by the agents.
 
-Athena Cyber Hub makes Athena OS to be the **Wazuh Management Server** to collect **centrally** all information about **threats** and **vulnerabilities** through all endpoints where you deployed Wazuh agents.
+AxylOS Cyber Hub makes AxylOS to be the **Wazuh Management Server** to collect **centrally** all information about **threats** and **vulnerabilities** through all endpoints where you deployed Wazuh agents.
 
-Wazuh Management Server can be initiated easily on Athena OS by starting its container in Athena Cyber Hub.
+Wazuh Management Server can be initiated easily on AxylOS by starting its container in AxylOS Cyber Hub.
 If you wish to monitor a particular system, as a Windows, MacOS or a Linux distribution system, and taking their threat and vulnerability information, how can you do it?
 
 You need to deploy the Wazuh agent on the interested machines. You can deploy it in different manner, based on the OS of the target endpoint. For several OS, like Debian, Alpine, Windows and MacOS, Wazuh, by the Management Server, already provides **agent files** to deploy to the target machine.
 
 For other systems not listed there, like Arch-based distros, the agent can be **built from source** directly on the target machine.
 
-To monitor Athena OS itself, deploy the Wazuh agent as follows:
+To monitor AxylOS itself, deploy the Wazuh agent as follows:
 ```shell
 sudo pacman --needed --noconfirm -Syu curl gcc make sudo wget expect gnupg perl-base perl fakeroot python brotli automake autoconf libtool gawk libsigsegv nodejs base-devel inetutils cmake
 curl -Ls https://github.com/wazuh/wazuh/archive/v4.5.2.tar.gz | tar zx
@@ -49,7 +49,7 @@ You will be asked to initialize Wazuh agent:
 * Choose where to install Wazuh: press **Enter** to select the default directory **/var/ossec**
 * What's the IP Address or hostname of the Wazuh server? **localhost**
   :::tip
-  **localhost** because we are deploying the agent on Athena OS itself that works also as Wazuh Management Server (so as SIEM/XDR). If you are setting it to a different machine, type IP address of the target machine itself
+  **localhost** because we are deploying the agent on AxylOS itself that works also as Wazuh Management Server (so as SIEM/XDR). If you are setting it to a different machine, type IP address of the target machine itself
   :::
 * For the remaining options, you can answer as you wish or press **Enter** to select the default choice
 
@@ -74,9 +74,9 @@ Started wazuh-logcollector...
 Started wazuh-modulesd...
 Completed.
 ```
-If Wazuh is still not started on Athena Cyber Hub, start it and wait for 2-3 minutes for its initialization. After that, open the browser and navigate to `https://localhost`. You should get Wazuh login page where to type the default access credentials `admin:SecretPassword` and, once landed on Wazuh dashboard, you should see the **Active agents** number to 1, that is the Wazuh agent just installed.
+If Wazuh is still not started on AxylOS Cyber Hub, start it and wait for 2-3 minutes for its initialization. After that, open the browser and navigate to `https://localhost`. You should get Wazuh login page where to type the default access credentials `admin:SecretPassword` and, once landed on Wazuh dashboard, you should see the **Active agents** number to 1, that is the Wazuh agent just installed.
 
-Unleash **Athena OS** to be your **Blue Team OS**! Monitor your OS and your infrastructure for vulnerabilities and threats in order to be always aware of your security posture!
+Unleash **AxylOS** to be your **Blue Team OS**! Monitor your OS and your infrastructure for vulnerabilities and threats in order to be always aware of your security posture!
 
 ![Cyber Hub](@assets/images/wazuh-dashboard.png)
 
@@ -96,15 +96,15 @@ Unleash **Athena OS** to be your **Blue Team OS**! Monitor your OS and your infr
 It contains several **CVE laboratories** from [Vulhub](https://github.com/vulhub/vulhub) where you can train on **real CVEs** to exploit technologies and services. Furthermore, it provides also several OWASP machines to enjoy with. Run your favourite vulnerable environment and get your CVE!
 
 #### Cyber Lab
-Set your **custom containers** and manage them in a centralized manner! When ACH is run for the first time, it will create `~/.config/athena-cyber-hub/cyberlab.toml` configuration file. Edit it by inserting the required information about your container, and then run ACH. Your containers will be collected in Cyber Lab section.
+Set your **custom containers** and manage them in a centralized manner! When ACH is run for the first time, it will create `~/.config/AxylOS-cyber-hub/cyberlab.toml` configuration file. Edit it by inserting the required information about your container, and then run ACH. Your containers will be collected in Cyber Lab section.
 
 Example configuration file:
 ```toml
 [[environment]]
 id = "vulhub/activemq"
 name = "ActiveHello"
-path_docker = "/usr/share/athena-platform-center/vulhub/activemq/CVE-2015-5254/docker-compose.yml"
-path_readme = "/usr/share/athena-platform-center/vulhub/activemq/CVE-2015-5254/README.md"
+path_docker = "/usr/share/AxylOS-platform-center/vulhub/activemq/CVE-2015-5254/docker-compose.yml"
+path_readme = "/usr/share/AxylOS-platform-center/vulhub/activemq/CVE-2015-5254/README.md"
 
 [[environment]]
 id = "well-hub/yourlab"

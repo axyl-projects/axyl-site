@@ -16,8 +16,8 @@ export default defineConfig({
         PageTitle: "./src/components/CustomPageTitle.astro",
       },
       logo: {
-        light: "/src/assets/athena-light.svg",
-        dark: "/src/assets/athena-dark.svg",
+        light: "/src/assets/gold.png",
+        dark: "/src/assets/gold.png",
       },
       customCss: process.env.NO_GRADIENTS
         ? ["./src/styles/_global.css"]
@@ -99,8 +99,8 @@ export default defineConfig({
               link: "/en/installation/install-guest-utm",
             },
             {
-              label: "Updating Athena OS",
-              link: "/en/installation/update-athena",
+              label: "Updating AxylOS",
+              link: "/en/installation/update-AxylOS",
             },
             {
               label: "Aegis Installer TUI",
@@ -112,7 +112,7 @@ export default defineConfig({
           label: "Configuration",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Athena Nix", link: "/en/configuration/nix-config" },
+            { label: "AxylOS Nix", link: "/en/configuration/nix-config" },
             {
               label: "Calamares Installer",
               link: "/en/configuration/calamares",
@@ -141,12 +141,12 @@ export default defineConfig({
           label: "Cyber Resources",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Athena Welcome", link: "/en/resources/athena-welcome" },
+            { label: "AxylOS Welcome", link: "/en/resources/AxylOS-welcome" },
             {
               label: "Pentesting Tools",
               link: "/en/resources/pentesting-tools",
             },
-            { label: "Athena Cyber Hub", link: "/en/resources/cyber-hub" },
+            { label: "AxylOS Cyber Hub", link: "/en/resources/cyber-hub" },
             {
               label: "Hack The Box Toolkit",
               link: "/en/resources/htb-toolkit",
@@ -208,9 +208,9 @@ export default defineConfig({
           label: "Community",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Contribute to Athena", link: "/en/community/contribute" },
+            { label: "Contribute to AxylOS", link: "/en/community/contribute" },
             { label: "Getting Help", link: "/en/community/getting-help" },
-            //{ label: 'Official Athena OS Mirrors', link: '/en/community/mirrors' },
+            //{ label: 'Official AxylOS Mirrors', link: '/en/community/mirrors' },
             { label: "Style Guide", link: "/en/community/style-guide" },
             {
               label: "Setting up a Mirror",
@@ -242,38 +242,38 @@ export default defineConfig({
           label: "Policy",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Athena OS EULA", link: "/en/policy/eula-policy" },
-            // { label: 'Athena OS Network Service Policy', link: '/en/policy/network-policy' },
+            { label: "AxylOS EULA", link: "/en/policy/eula-policy" },
+            // { label: 'AxylOS Network Service Policy', link: '/en/policy/network-policy' },
             {
-              label: "Athena OS Code of Conduct",
+              label: "AxylOS Code of Conduct",
               link: "/en/policy/code-of-conduct",
             },
             {
-              label: "Athena OS Collaboration Policy",
+              label: "AxylOS Collaboration Policy",
               link: "/en/policy/collaboration-policy",
             },
             {
-              label: "Athena OS Open Source Policy",
+              label: "AxylOS Open Source Policy",
               link: "/en/policy/opensource-policy",
             },
             {
-              label: "Athena OS Package Policy",
+              label: "AxylOS Package Policy",
               link: "/en/policy/package-policy",
             },
             {
-              label: "Athena OS Pentesting Tools Policy",
+              label: "AxylOS Pentesting Tools Policy",
               link: "/en/policy/tools-policy",
             },
             {
-              label: "Athena OS Privacy Policy",
+              label: "AxylOS Privacy Policy",
               link: "/en/policy/privacy-policy",
             },
             {
-              label: "Athena OS Update Policy",
+              label: "AxylOS Update Policy",
               link: "/en/policy/update-policy",
             },
-            { label: "Athena OS User Policy", link: "/en/policy/user-policy" },
-            // { label: 'Cookie Policy', link: '/en/policy/cookie-policy' },
+            { label: "AxylOS User Policy", link: "/en/policy/user-policy" },
+            { label: "Cookie Policy", link: "/en/policy/cookie-policy" },
           ],
         },
       ],

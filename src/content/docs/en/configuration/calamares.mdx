@@ -1,22 +1,22 @@
 ---
 title: Calamares Installer
-description: How to install Athena OS by Calamares.
+description: How to install AxylOS by Calamares.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 
-[Calamares](https://calamares.io/) is an installer customizable framework with the purpose to satisfy a wide variety of needs and use cases. Calamares aims to be easy and usable while remaining independent of any Linux distribution. For these reasons, it has been chosen as installation framework in Athena.
+[Calamares](https://calamares.io/) is an installer customizable framework with the purpose to satisfy a wide variety of needs and use cases. Calamares aims to be easy and usable while remaining independent of any Linux distribution. For these reasons, it has been chosen as installation framework in AxylOS.
 
 Calamares has been configured with several modules invoked inside /etc/calamares/settings.conf at the installation time.
 
-Calamares has been adapted to Athena OS in order to detect automatically your hardware. It means that the installer is able to detect your environment (baremetal or virtualized), your CPU and your GPU. According to this information, all the needed drivers are automatically installed with no any actions by your side.
+Calamares has been adapted to AxylOS in order to detect automatically your hardware. It means that the installer is able to detect your environment (baremetal or virtualized), your CPU and your GPU. According to this information, all the needed drivers are automatically installed with no any actions by your side.
 
 Specifically, it will automatically install:
 * Guest Additions / Tools for your virtualized environmment
 * Your CPU ucode package
 * Your GPU drivers
 
-Calamares is run by interacting on Athena Welcome through **Easy Installation (Offline)** and **Advanced Installation (Online)** buttons. The former does not require an Internet connection but it installs all default elements in Athena; the latter requires an Internet connection but you can customize your final environment.
+Calamares is run by interacting on AxylOS Welcome through **Easy Installation (Offline)** and **Advanced Installation (Online)** buttons. The former does not require an Internet connection but it installs all default elements in AxylOS; the latter requires an Internet connection but you can customize your final environment.
 
 If you want to store installation logs in a file, run the installer by:
 ```shell
@@ -31,7 +31,7 @@ Anyway, Calamares always will store the installation logs in:
 
 In the following, for each step is specified also the availability of the installer section for **Easy Installation (Offline)** and/or **Advanced Installation (Online)** install method.
 
-Open Athena Welcome, then click on **Easy Installation (Offline)** or **Advanced Installation (Online)** button according to your preference.
+Open AxylOS Welcome, then click on **Easy Installation (Offline)** or **Advanced Installation (Online)** button according to your preference.
 
 #### Language
 Availability: Easy and Advanced Installation.
@@ -139,15 +139,15 @@ Availability: Easy and Advanced Installation.
 13. Select your partition according to the installation type you are going to. Check the **Installation** chapter related to your setup and follow there the partition scheme to implement:
 * [Installing as single boot](/en/installation/install-single-boot/#partitioning)
 * [Installing as dual boot with Linux or Windows](/en/installation/install-dual-boot/#partitioning)
-    
+
     For virtual machine scenarios, just select **Erase disk**
     ![VM Erase Disk](@assets/images/calamares-vm-erase.png)
 
 14. Review the **Summary** and run the installation.
 
-    During the installation, you can click on **Toggle log** button for reading in real time the installation logs. In case the installation gets some issues, Calamares provides to you a link to https://termbin.com where the logs are temporary saved in order to be accessed by the Athena OS team for troubleshooting.
+    During the installation, you can click on **Toggle log** button for reading in real time the installation logs. In case the installation gets some issues, Calamares provides to you a link to https://termbin.com where the logs are temporary saved in order to be accessed by the AxylOS team for troubleshooting.
 
-15. If no errors have been raised during the installation phase, you are ready to use Athena OS!
+15. If no errors have been raised during the installation phase, you are ready to use AxylOS!
 
     ![Installation Finished](@assets/images/calamares-finish.png)
 

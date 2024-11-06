@@ -1,13 +1,13 @@
 ---
-title: Athena Nix Configuration
-description: How to manage Nix configuration in Athena OS.
+title: AxylOS Nix Configuration
+description: How to manage Nix configuration in AxylOS.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 
 ## Tree Structure
 
-The macrostructure of Athena Nix configuration elements is the following:
+The macrostructure of AxylOS Nix configuration elements is the following:
 ```
 [ 198]  /etc/nixos/
 ├── [  92]  home-manager/
@@ -48,7 +48,7 @@ The main file that centrally manages the entire configuration is `/etc/nixos/con
 
 ## configuration.nix
 
-Athena Nix can be tailored to your needs. By `/etc/nixos/configuration.nix`, you can configure your entire system according to your need.
+AxylOS Nix can be tailored to your needs. By `/etc/nixos/configuration.nix`, you can configure your entire system according to your need.
 
 It looks like:
 ```nix
@@ -60,10 +60,10 @@ It looks like:
 let
   # These variable names are used by Aegis backend
   version = "unstable"; #or 24.05
-  username = "athena";
+  username = "AxylOS";
   hashed = "$6$zjvJDfGSC93t8SIW$AHhNB.vDDPMoiZEG3Mv6UYvgUY6eya2UY5E2XA1lF7mOg6nHXUaaBmJYAMMQhvQcA54HJSLdkJ/zdy8UKX3xL1";
   hashedRoot = "$6$zjvJDfGSC93t8SIW$AHhNB.vDDPMoiZEG3Mv6UYvgUY6eya2UY5E2XA1lF7mOg6nHXUaaBmJYAMMQhvQcA54HJSLdkJ/zdy8UKX3xL1";
-  hostname = "athenaos";
+  hostname = "AxylOSos";
   theme = "temple";
   desktop = "gnome";
   dmanager = "gdm";
@@ -127,7 +127,7 @@ version = "24.05";
 ### Username
 
 ```nix
-username = "athena";
+username = "AxylOS";
 ```
 You can change the username of your account as you prefer by editing the `username` value.
 
@@ -146,7 +146,7 @@ Be careful when you play with these values. You could make your system inaccessi
 ### Hostname
 
 ```nix
-hostname = "athenaos";
+hostname = "AxylOSos";
 ```
 You can change the hostname of your system as you prefer by editing the `hostname` value.
 
@@ -155,7 +155,7 @@ You can change the hostname of your system as you prefer by editing the `hostnam
 ```nix
 theme = "temple";
 ```
-This variable is used to set the Athena theme on your environment. Athena offers several themes you can choose:
+This variable is used to set the AxylOS theme on your environment. AxylOS offers several themes you can choose:
 ```
 akame
 anunna
@@ -173,7 +173,7 @@ Change the `theme` variable value and discover all of them!
 ```nix
 desktop = "gnome";
 ```
-This variable is used to set your desktop environment. Athena Nix the current available environments are:
+This variable is used to set your desktop environment. AxylOS Nix the current available environments are:
 ```
 gnome
 cinnamon
@@ -186,7 +186,7 @@ Change the `desktop` variable value and set your favourite desktop environment!
 ```nix
 dmanager = "gdm";
 ```
-This variable is used to set your display manager. Athena Nix the current available display managers are:
+This variable is used to set your display manager. AxylOS Nix the current available display managers are:
 ```
 gdm
 lightdm neon
@@ -223,7 +223,7 @@ Change the `terminal` variable value and the terminal you wish!
 ```nix
 browser = "firefox";
 ```
-This variable is used to set the browser application. Currently, only Firefox is supported in Athena Nix.
+This variable is used to set the browser application. Currently, only Firefox is supported in AxylOS Nix.
 
 ### System values
 
@@ -231,9 +231,9 @@ The other variable values should not be edited because they are set at installat
 
 ## Advanced Configuration
 
-You can still deeply configure your Athena environment by acting on elements of its Nix macrostructure by adding or editing the related `default.nix` file.
+You can still deeply configure your AxylOS environment by acting on elements of its Nix macrostructure by adding or editing the related `default.nix` file.
 
-For example, if you wish to edit the Athena Firefox configuration, just access to `/etc/nixos/home-manager/browsers/firefox/default.nix`.
+For example, if you wish to edit the AxylOS Firefox configuration, just access to `/etc/nixos/home-manager/browsers/firefox/default.nix`.
 
 If you need to integrate additional software in your system, add them in `/etc/nixos/hosts/software/default.nix`.
 
@@ -241,13 +241,13 @@ If you are in a virtualized environment, tweak the related settings in `/etc/nix
 
 All the files in `/etc/nixos/home-manager` are related to the configuration impacting the home directory or the user profile.
 
-They are just few examples. Familiarize with the Athena Nix configuration macrostructure to unlock the full potential of your environment!
+They are just few examples. Familiarize with the AxylOS Nix configuration macrostructure to unlock the full potential of your environment!
 
 ## Error Handling
 
 In case you get errors during the `nixos-rebuild switch` process:
 * if it is caused by a tool in a specific cyber role you are setting to, you can access to `/etc/nixos/modules/roles/<your-role>/default.nix` and comment the line related to the tool that is broken;
-* if it is caused by a generic software in Athena, you can access to `/etc/nixos/hosts/software/default.nix` and comment the line related to the tool that is broken;
+* if it is caused by a generic software in AxylOS, you can access to `/etc/nixos/hosts/software/default.nix` and comment the line related to the tool that is broken;
 
 Finally, save the file and run again `nixos-rebuild switch`.
 

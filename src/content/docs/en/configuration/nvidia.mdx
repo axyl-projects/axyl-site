@@ -1,6 +1,6 @@
 ---
 title: NVIDIA GPU
-description: How to manage an NVIDIA GPU in Athena OS.
+description: How to manage an NVIDIA GPU in AxylOS.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
@@ -11,15 +11,15 @@ In general, the real GPU can be used only in baremetal or on virtualization soft
 1. Client with **integrated GPU** (i.e., Intel GPU) and **dedicated GPU** (i.e., ASUS ROG Strix GeForce RTX 3060)
 2. Client without integrated GPU but only a dedicated GPU (i.e., ASUS ROG Strix GeForce RTX 3060)
 
-Athena OS automatically recognizes the NVIDIA GPU and it is able to retrieve the correct driver according to the NVIDIA GPU family and the installed kernel inside of the sytem.
+AxylOS automatically recognizes the NVIDIA GPU and it is able to retrieve the correct driver according to the NVIDIA GPU family and the installed kernel inside of the sytem.
 
 :::caution
-Some packages (i.e., bumblebee) could disable NVIDIA modules. For checking if NVIDIA modules are disabled, give a look to the files in `/etc/sysctl.d/` directory. 
+Some packages (i.e., bumblebee) could disable NVIDIA modules. For checking if NVIDIA modules are disabled, give a look to the files in `/etc/sysctl.d/` directory.
 :::
 
 ## Integrated GPU and Dedicated GPU
 
-During the installation phase in Calamares, Athena will set the NVIDIA drivers **automatically**.
+During the installation phase in Calamares, AxylOS will set the NVIDIA drivers **automatically**.
 
 ### Xorg
 
@@ -77,7 +77,7 @@ Generally, at the first startup, the system should work in **Integrated** mode. 
 
 ### Wayland
 
-Currently EnvyControl does not work on Wayland. In case you are in this kind of environment and you need to switch to a dedicated NVIDIA GPU scenario, Athena OS offers [nvx](https://github.com/pedro00dk/nvidia-exec).
+Currently EnvyControl does not work on Wayland. In case you are in this kind of environment and you need to switch to a dedicated NVIDIA GPU scenario, AxylOS offers [nvx](https://github.com/pedro00dk/nvidia-exec).
 
 Just open a terminal and run:
 ```shell
@@ -87,6 +87,6 @@ It will turn on the NVIDIA GPU and load the related modules.
 
 ## Dedicated GPU only
 
-During the installation phase in Calamares, Athena will set the NVIDIA drivers **automatically** in order to use your dedicated GPU right away.
+During the installation phase in Calamares, AxylOS will set the NVIDIA drivers **automatically** in order to use your dedicated GPU right away.
 
 <ImageComponent />

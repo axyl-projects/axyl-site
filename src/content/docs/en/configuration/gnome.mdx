@@ -1,6 +1,6 @@
 ---
 title: GNOME
-description: GNOME environment in Athena OS.
+description: GNOME environment in AxylOS.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
@@ -8,7 +8,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 [GNOME](https://wiki.archlinux.org/title/GNOME) is a desktop environment that aims to be simple and easy to use.
 
-In Athena OS, GNOME has been configured in order to decrease the usage complexity and to improve the user desktop experience.
+In AxylOS, GNOME has been configured in order to decrease the usage complexity and to improve the user desktop experience.
 
 ![GNOME Environment](@assets/images/gnome-sweetdark.png)
 
@@ -47,13 +47,13 @@ At the center of the top bar, several **workspaces** have been set. They have be
 
 By clicking on one of them, you will be switched to the related workspace.
 
-On the right side of the top bar, by clicking on the statement **Athena is Great!**, a set of widgets appears.
+On the right side of the top bar, by clicking on the statement **AxylOS is Great!**, a set of widgets appears.
 
 ![GNOME Widget](@assets/images/gnome-widget.png)
 ![GNOME Dashboard](@assets/images/gnome-dashboard.png)
 
 Here, you can access to several resources.
-*/} 
+*/}
 
 On the right side of the top bar, you can find some metrics about the system resource consumption.
 
@@ -76,10 +76,10 @@ At the bottom side of the desktop, a **Menu Dock** has been implemented showing 
 ![GNOME Menu Dock](@assets/images/gnome-dock.png)
 
 {/*
-GNOME in Athena offers also the **Gestures Improvement** extension that allow you to improve touchpad gestures. It can be managed by accessing to the Extensions, finding this extension and clicking on **Settings**.
+GNOME in AxylOS offers also the **Gestures Improvement** extension that allow you to improve touchpad gestures. It can be managed by accessing to the Extensions, finding this extension and clicking on **Settings**.
 
 ![GNOME Gestures](@assets/images/gnome-gestures.png)
-*/} 
+*/}
 
 By pressing `Super` key (i.e., `Windows` key), or by the Menu Dock on **Show Apps** or Logo Menu on **App Grid** button, you can access to the installed applications.
 
@@ -91,7 +91,7 @@ Default GNOME usually does not show desktop icons. Here, you can have them.
 
 ## Customization
 
-I you wish to change some GNOME elements in Athena OS, you can follow this guide to get the right steps and transform Athena according to your taste.
+I you wish to change some GNOME elements in AxylOS, you can follow this guide to get the right steps and transform AxylOS according to your taste.
 
 GNOME is composed of several resources and we will discuss each one of them in order to tweak it as possible.
 
@@ -100,11 +100,11 @@ GNOME is composed of several resources and we will discuss each one of them in o
 Backgrounds are stored in:
 
 <Tabs>
-<TabItem label="Athena Arch">
+<TabItem label="AxylOS Arch">
 `/usr/share/backgrounds/default/` folder.
 </TabItem>
-<TabItem label="Athena Nix">
-`/run/current-system/sw/share/backgrounds/athena/` folder.
+<TabItem label="AxylOS Nix">
+`/run/current-system/sw/share/backgrounds/AxylOS/` folder.
 </TabItem>
 </Tabs>
 
@@ -138,12 +138,12 @@ If you are using a dark theme, use **picture-uri-dark**. If you are using a ligh
 If you wish to customize your **mouse pointer**:
 
 <Tabs>
-<TabItem label="Athena Arch">
+<TabItem label="AxylOS Arch">
 download one mouse cursor theme. Look at [GNOME Look](https://www.gnome-look.org/) and select **Cursors** category.
 
 Once downloaded, place the cursor folder in `/usr/share/icons/` to apply it at system-wide or `~/.local/share/icons/` to apply only for your user.
 </TabItem>
-<TabItem label="Athena Nix">
+<TabItem label="AxylOS Nix">
 setup it in a declarative manner by Nix modules.
 </TabItem>
 </Tabs>
@@ -164,12 +164,12 @@ gsettings set org.gnome.desktop.interface cursor-theme <cursor_theme_foldername>
 If you wish to customize the **icon theme**:
 
 <Tabs>
-<TabItem label="Athena Arch">
+<TabItem label="AxylOS Arch">
 download one of it. Look at [GNOME Look](https://www.gnome-look.org/) and select **Full Icon Themes** category.
 
 Once downloaded, place the icon folder in `/usr/share/icons/` to apply it at system-wide or `~/.local/share/icons/` to apply only for your user.
 </TabItem>
-<TabItem label="Athena Nix">
+<TabItem label="AxylOS Nix">
 setup it in a declarative manner by Nix modules.
 </TabItem>
 </Tabs>
@@ -189,12 +189,12 @@ gsettings set org.gnome.desktop.interface icon-theme <icon_theme_foldername>
 
 If you wish to change the theme of top bar and the GTK windows:
 <Tabs>
-<TabItem label="Athena Arch">
+<TabItem label="AxylOS Arch">
 download one of it. Look at [GNOME Look](https://www.gnome-look.org/) and select **GTK3/4 Themes** category. Download only themes that are compatible with the actual installed version of GNOME.
 
 Once downloaded, place the theme folder in `/usr/share/themes/` to apply it at system-wide or `~/.local/share/themes/` to apply only for your user.
 </TabItem>
-<TabItem label="Athena Nix">
+<TabItem label="AxylOS Nix">
 setup it in a declarative manner by Nix modules.
 </TabItem>
 </Tabs>
@@ -212,30 +212,30 @@ gsettings set org.gnome.desktop.wm.preferences theme <theme_foldername>
 gsettings set org.gnome.shell.extensions.user-theme name <theme_foldername>
 ```
 
-If you wish to apply one of the complete themes prebuilt for Athena OS:
+If you wish to apply one of the complete themes prebuilt for AxylOS:
 
 <Tabs>
-<TabItem label="Athena Arch">
+<TabItem label="AxylOS Arch">
 the theme folder must always be stored in `/usr/share/themes/` or `~/.local/share/themes/`
 
-If you wish to apply one of the complete themes prebuilt for Athena OS, you can use **athena-theme-tweak** and using the **-t** parameter. Here the output of the help command to show how Athena Theme Tweak must be used:
+If you wish to apply one of the complete themes prebuilt for AxylOS, you can use **AxylOS-theme-tweak** and using the **-t** parameter. Here the output of the help command to show how AxylOS Theme Tweak must be used:
 ```shell
 List of arguments:
 -b, --browser                 set the current browser logo in Red Team menu
 -c, --colored                 let's give some random colored output
 -e, --emulator                specify a terminal emulator to be set [alacritty|cool-retro-term|foot|gnome-terminal|kitty|konsole|urxvt|xterm]
 -h, --help                    show this help message and exit
--l, --list                    list all available Athena themes
--t, --theme <theme-name>      specify an Athena theme to be set [AkameGaKill|BlueEyesSamurai|Graphite|CyborgGruvbox|SweetDark|XXE]
+-l, --list                    list all available AxylOS themes
+-t, --theme <theme-name>      specify an AxylOS theme to be set [AkameGaKill|BlueEyesSamurai|Graphite|CyborgGruvbox|SweetDark|XXE]
 
 Usage Examples:
-athena-theme-tweak -l
-athena-theme-tweak -e alacritty
-athena-theme-tweak -t BlueEyesSamurai
-athena-theme-tweak -b
+AxylOS-theme-tweak -l
+AxylOS-theme-tweak -e alacritty
+AxylOS-theme-tweak -t BlueEyesSamurai
+AxylOS-theme-tweak -b
 ```
 </TabItem>
-<TabItem label="Athena Nix">
+<TabItem label="AxylOS Nix">
 edit `/etc/nixos/configuration.nix` file and set `theme` value as desired.
 </TabItem>
 </Tabs>
@@ -250,7 +250,7 @@ Usually the customization of fonts could be application-specific (for example fo
 
 ### GNOME Extensions
 
-In Athena OS, GNOME leverages on different GNOME Extensions that can be customized as you wish. Their settings can be accessed by clicking on **Logo Menu** on top-left in the top bar and then on **Extensions** or by the **App Grid** and search for **Extensions**. The Extensions window will list all the enabled and disabled GNOME extensions, and their settings can be managed by clicking on the related **Settings** button.
+In AxylOS, GNOME leverages on different GNOME Extensions that can be customized as you wish. Their settings can be accessed by clicking on **Logo Menu** on top-left in the top bar and then on **Extensions** or by the **App Grid** and search for **Extensions**. The Extensions window will list all the enabled and disabled GNOME extensions, and their settings can be managed by clicking on the related **Settings** button.
 
 ![GNOME Extensions](@assets/images/gnome-custom-extensions.png)
 
@@ -314,7 +314,7 @@ It monitors the physical parameters and resources of your system in a dynamic ma
 
 ## Keybindings
 
-Here are reported some useful **keybindings** set by default in Athena OS GNOME.
+Here are reported some useful **keybindings** set by default in AxylOS GNOME.
 
 | Keybind | Description |
 | ------- | ----------- |
@@ -327,21 +327,21 @@ Here are reported some useful **keybindings** set by default in Athena OS GNOME.
 ## Side Installation
 
 <Tabs>
-<TabItem label="Athena Arch">
-To install Athena OS GNOME environment on side of an existing environment, run:
+<TabItem label="AxylOS Arch">
+To install AxylOS GNOME environment on side of an existing environment, run:
 ```
-sudo pacman -S athena-gnome-config
-dconf load /org/gnome/settings-daemon/plugins/media-keys/ < /usr/share/athena-gnome-config/dconf-custom-keybindings.ini
-dconf load /org/gnome/mutter/ < /usr/share/athena-gnome-config/dconf-mutter.ini
-dconf load /org/gnome/desktop/ < /usr/share/athena-gnome-config/dconf-desktop.ini
-dconf load /org/gnome/shell/ < /usr/share/athena-gnome-config/dconf-shell.ini
+sudo pacman -S AxylOS-gnome-config
+dconf load /org/gnome/settings-daemon/plugins/media-keys/ < /usr/share/AxylOS-gnome-config/dconf-custom-keybindings.ini
+dconf load /org/gnome/mutter/ < /usr/share/AxylOS-gnome-config/dconf-mutter.ini
+dconf load /org/gnome/desktop/ < /usr/share/AxylOS-gnome-config/dconf-desktop.ini
+dconf load /org/gnome/shell/ < /usr/share/AxylOS-gnome-config/dconf-shell.ini
 ```
 Then reboot. On Login Manager, select **GNOME Wayland** or **GNOME Xorg** session and login.
 
-If your theme is not correctly displayed, run `athena-theme-tweak` to set or change the current environment theme.
+If your theme is not correctly displayed, run `AxylOS-theme-tweak` to set or change the current environment theme.
 </TabItem>
-<TabItem label="Athena Nix">
-To set Athena OS GNOME environment on side of an existing environment, just edit `/etc/nixos/configuration` and change `desktop` variable to `gnome`. Finally, run:
+<TabItem label="AxylOS Nix">
+To set AxylOS GNOME environment on side of an existing environment, just edit `/etc/nixos/configuration` and change `desktop` variable to `gnome`. Finally, run:
 ```shell
 sudo nixos-rebuild switch
 ```

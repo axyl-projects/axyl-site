@@ -22,7 +22,7 @@ The emoji used on `PS1` come from [Emojipedia](https://emojipedia.org/). For sho
 
 ### Customize Prompt
 
-You can customize the Fish [shell prompt](https://fishshell.com/docs/current/tutorial.html#prompt) by editing `~/.config/fish/functions/fish_prompt.fish`. For example, you can start to edit the shell prompt in Athena that is:
+You can customize the Fish [shell prompt](https://fishshell.com/docs/current/tutorial.html#prompt) by editing `~/.config/fish/functions/fish_prompt.fish`. For example, you can start to edit the shell prompt in AxylOS that is:
 ```fish
 function fish_prompt
     set -l var (tty)
@@ -69,7 +69,7 @@ set_color 123e7c -> Dark Blue
 
 ### Customize Prompt
 
-You can customize the Zsh shell prompt by editing the `PROMPT` variable in `~/.zshrc`. The Athena OS default shell prompt appears as:
+You can customize the Zsh shell prompt by editing the `PROMPT` variable in `~/.zshrc`. The AxylOS default shell prompt appears as:
 ```bash
 PROMPT="%F{46}┌──[HQ🚀🌐%F{201}$(ip -4 addr | grep -v '127.0.0.1' | grep -v 'secondary' | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -z 's/\n/|/g;s/|\$/\n/' | rev | cut -c 2- | rev)🔥%n%F{46}]"$'\n'"└──╼[👾]%F{44}%~ $%f "
 ```
@@ -80,8 +80,8 @@ PROMPT="%F{46}┌──[HQ🚀🌐%F{201}$(ip -4 addr | grep -v '127.0.0.1' | gr
 
 You can customize the PowerShell prompt by editing `~/.config/powershell/Microsoft.PowerShell_profile.ps1` and modifying its content:
 ```powershell
-function prompt() 
-{ 
+function prompt()
+{
   $ESC=$([char]27)
   "$ESC[1;31m┌──L3ts D0 1t $(whoami)💥$ESC[00m$($executionContext.SessionState.Path.CurrentLocation)$("`r`n$ESC[1;34m└──╼Weaponizing PowerShell...🚀>$ESC[00m" * ($nestedPromptLevel + 1)) ";
 }

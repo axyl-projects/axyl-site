@@ -1,11 +1,11 @@
 ---
-title: Athena OS RDP Image
-description: Official Athena OS RDP image.
+title: AxylOS RDP Image
+description: Official AxylOS RDP image.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 
-Athena OS container brings you to live a funny hacking experience in a containerized environment:
+AxylOS container brings you to live a funny hacking experience in a containerized environment:
 
 * Select your favourite **InfoSec role** between **Bug Bounty Hunter**, **Red Teamer**, **OSINT Specialist** and **much more**
 * Play **Hack The Box** machines for improving your skills
@@ -13,17 +13,17 @@ Athena OS container brings you to live a funny hacking experience in a container
 * Make your **Capture The Flag** or **ethical hacking** activity efficient
 
 <p align="center">
-  <a href="https://hub.docker.com/u/athenaos"><img src="https://user-images.githubusercontent.com/83867734/224526828-b4f2a470-d539-494d-9ac0-34568a75af3a.png" width="150" height="128" /></a>
+  <a href="https://hub.docker.com/u/AxylOSos"><img src="https://user-images.githubusercontent.com/83867734/224526828-b4f2a470-d539-494d-9ac0-34568a75af3a.png" width="150" height="128" /></a>
 </p>
 <h5 align="center">
-Click Docker icon above to explore Athena OS Docker containers!
+Click Docker icon above to explore AxylOS Docker containers!
 </h5>
 
 ## Usage
 
 ![image](@assets/images/container-motd.png)
 
-Athena OS container has been developed in order to be run also by podman. The choice to use podman comes from its advantages over docker, one of most important: security.
+AxylOS container has been developed in order to be run also by podman. The choice to use podman comes from its advantages over docker, one of most important: security.
 
 According to your preference, install `docker` and `docker-compose` packages or `podman` package for your Linux environment.
 
@@ -36,7 +36,7 @@ in order to allow podman to search for images in Docker Hub.
 
 ### Hack The Box API Token
 
-Athena OS container allows you to learn and play on Hack The Box platform. It is possible to access to Hack The Box by using your App Token. Retrieve your App Token from the Hack The Box website in your Profile Settings.
+AxylOS container allows you to learn and play on Hack The Box platform. It is possible to access to Hack The Box by using your App Token. Retrieve your App Token from the Hack The Box website in your Profile Settings.
 
 ### Docker
 
@@ -49,8 +49,8 @@ The `docker-compose.yml` file should have the following content:
 version: '3.4'
 
 services:
-  athena-rdp:
-    image: athenaos/rdp
+  AxylOS-rdp:
+    image: AxylOSos/rdp
     cap_add:
       - cap_sys_admin
       - ipc_lock
@@ -75,14 +75,14 @@ services:
 
 Run the container by:
 ```shell
-sudo docker-compose run athena-rdp
+sudo docker-compose run AxylOS-rdp
 ```
 
 #### docker run
 
 ```bash
 docker run -ti \
-  --name athena-rdp \
+  --name AxylOS-rdp \
   --cap-add CAP_SYS_ADMIN \
   --cap-add IPC_LOCK \
   --cap-add NET_ADMIN \
@@ -94,30 +94,30 @@ docker run -ti \
   --publish 23389:3389 \
   --publish 8022:22 \
   --restart unless-stopped \
-  docker.io/athenaos/rdp:latest
+  docker.io/AxylOSos/rdp:latest
 ```
 or
 ```shell
-docker run -ti --name athena-rdp --cap-add CAP_SYS_ADMIN --cap-add IPC_LOCK --cap-add NET_ADMIN --cgroupns=host --device /dev/net/tun --shm-size 2G --sysctl net.ipv6.conf.all.disable_ipv6=0 --volume /sys/fs/cgroup:/sys/fs/cgroup --publish 23389:3389 --publish 8022:22 --restart unless-stopped docker.io/athenaos/rdp:latest
+docker run -ti --name AxylOS-rdp --cap-add CAP_SYS_ADMIN --cap-add IPC_LOCK --cap-add NET_ADMIN --cgroupns=host --device /dev/net/tun --shm-size 2G --sysctl net.ipv6.conf.all.disable_ipv6=0 --volume /sys/fs/cgroup:/sys/fs/cgroup --publish 23389:3389 --publish 8022:22 --restart unless-stopped docker.io/AxylOSos/rdp:latest
 ```
 
 In case you exit the container and need to re-enter, run:
 ```shell
-docker exec --user athena -ti athena-rdp /bin/zsh
+docker exec --user AxylOS -ti AxylOS-rdp /bin/zsh
 ```
 In case the container is not running, run:
 ```shell
-docker start athena-rdp
+docker start AxylOS-rdp
 ```
 
 For stopping the container, run:
 ```shell
-docker stop athena-rdp
+docker stop AxylOS-rdp
 ```
 
 For deleting the container, run:
 ```shell
-docker container rm athena-rdp
+docker container rm AxylOS-rdp
 ```
 
 ### Podman (Untested)
@@ -128,49 +128,49 @@ You can run the container by `podman run`.
 
 ```shell
 podman run -ti \
-  --name athena-rdp \
+  --name AxylOS-rdp \
   --cap-add NET_RAW \
   --cap-add NET_ADMIN \
   --device /dev/net/tun \
   --restart unless-stopped \
-  docker.io/athenaos/rdp:latest
+  docker.io/AxylOSos/rdp:latest
 ```
 or
 ```shell
-podman run -ti --name athena-rdp --cap-add NET_RAW --cap-add NET_ADMIN --device /dev/net/tun --restart unless-stopped docker.io/athenaos/rdp:latest
+podman run -ti --name AxylOS-rdp --cap-add NET_RAW --cap-add NET_ADMIN --device /dev/net/tun --restart unless-stopped docker.io/AxylOSos/rdp:latest
 ```
 
 Podman will automatically replicate `/etc/hosts` and `/etc/hostname` files of your host. For preventing this, add `--no-hosts` argument to the `podman run` command above.
 
 In case you exit the container and need to re-enter, run:
 ```shell
-podman exec --user athena -ti athena-rdp /bin/zsh
+podman exec --user AxylOS -ti AxylOS-rdp /bin/zsh
 ```
 In case the container is not running, run:
 ```shell
-podman start athena-rdp
+podman start AxylOS-rdp
 ```
 
 For stopping the container, run:
 ```shell
-podman stop athena-rdp
+podman stop AxylOS-rdp
 ```
 
 For deleting the container, run:
 ```shell
-podman container rm athena-rdp
+podman container rm AxylOS-rdp
 ```
 
 ### Default Credentials
 
 ```
-athena:athena
+AxylOS:AxylOS
 ```
 
 ### Setting HTB API Token
 
 Once you retrieved your HTB API Token from your Hack The Box website profile settings, you can set the HTB API Token in two ways:
-* By connecting by RDP to the GUI as explained in the next section, open terminal and run `htb-update` (or clicking **HTB Update** button in Athena Welcome)
+* By connecting by RDP to the GUI as explained in the next section, open terminal and run `htb-update` (or clicking **HTB Update** button in AxylOS Welcome)
 * If you don't want to connect to the GUI environment, run the following commands:
   ```shell
   sudo mkdir -p /run/secrets
@@ -178,7 +178,7 @@ Once you retrieved your HTB API Token from your Hack The Box website profile set
   <store your HTB API Token in htb-api file and save it>
   htb-play
   ```
-  
+
 ## Connect to the desktop by RDP
 
 You should now be able to access your full-featured GNOME desktop using
@@ -201,9 +201,9 @@ For copy and paste text from the host to the environment, copy a string, then, o
 Clone this repository, edit `Dockerfile` and then run `docker build` as usual:
 
 ```shell
-git clone https://github.com/Athena-OS/athena-rdp-docker.git
-cd athena-rdp-docker
-docker build --tag 'custom-athena-rdp:latest' .
+git clone https://github.com/AxylOS-OS/AxylOS-rdp-docker.git
+cd AxylOS-rdp-docker
+docker build --tag 'custom-AxylOS-rdp:latest' .
 ```
 
 ### Invalidating cache
@@ -211,28 +211,28 @@ docker build --tag 'custom-athena-rdp:latest' .
 Use `--no-cache` option:
 
 ```shell
-docker build --tag 'custom-athena-rdp:latest' --no-cache .
+docker build --tag 'custom-AxylOS-rdp:latest' --no-cache .
 ```
 
 ## Deployment on Apple M1/M2
 
 Download **Docker Desktop**, open it and go to **Settings**, then enable it (use **Rosetta** for x86/amd64 emulation on Apple Silicon):
-![image](https://github.com/Athena-OS/athena-iso/assets/83867734/09c2cd7e-d289-41e3-8b53-6fef879e90ae)
+![image](https://github.com/AxylOS-OS/AxylOS-iso/assets/83867734/09c2cd7e-d289-41e3-8b53-6fef879e90ae)
 
 In **General**, enable **VirtueFS**, then apply and restart:
-![image](https://github.com/Athena-OS/athena-iso/assets/83867734/23bae03a-3ec0-4bc6-87df-e545e388c826)
+![image](https://github.com/AxylOS-OS/AxylOS-iso/assets/83867734/23bae03a-3ec0-4bc6-87df-e545e388c826)
 
-Open **Terminal** and pull Athena OS container by using `docker pull --platform linux/amd64 athenaos/rdp:latest` for Athena OS RDP container.
+Open **Terminal** and pull AxylOS container by using `docker pull --platform linux/amd64 AxylOSos/rdp:latest` for AxylOS RDP container.
 
 Once pulled, run:
 ```shell
-docker run -ti --name athena-rdp --cap-add CAP_SYS_ADMIN --cap-add IPC_LOCK --cap-add NET_ADMIN --cgroupns=host --device /dev/net/tun --shm-size 2G --sysctl net.ipv6.conf.all.disable_ipv6=0 --volume /sys/fs/cgroup:/sys/fs/cgroup --publish 23389:3389 --publish 8022:22 --restart unless-stopped docker.io/athenaos/rdp:latest
+docker run -ti --name AxylOS-rdp --cap-add CAP_SYS_ADMIN --cap-add IPC_LOCK --cap-add NET_ADMIN --cgroupns=host --device /dev/net/tun --shm-size 2G --sysctl net.ipv6.conf.all.disable_ipv6=0 --volume /sys/fs/cgroup:/sys/fs/cgroup --publish 23389:3389 --publish 8022:22 --restart unless-stopped docker.io/AxylOSos/rdp:latest
 ```
 
-Login by using **athena\:athena** credential.
+Login by using **AxylOS\:AxylOS** credential.
 
 To connect by RDP session, use Microsoft Remote Desktop Service, type **127.0.0.1:23389**:
-![image](https://github.com/Athena-OS/athena-iso/assets/83867734/989204dc-1dba-439f-9662-4547ac148300)
+![image](https://github.com/AxylOS-OS/AxylOS-iso/assets/83867734/989204dc-1dba-439f-9662-4547ac148300)
 
 Save and connect to it.
 

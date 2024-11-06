@@ -1,19 +1,19 @@
 ---
 title: Shell
-description: Athena OS Shells.
+description: AxylOS Shells.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 
-In Athena OS, four shells are mainly used: **Bash**, **Fish**, **Zsh** and **PowerShell**. For Bash, Fish, Zsh the same prompt pattern has been used.
+In AxylOS, four shells are mainly used: **Bash**, **Fish**, **Zsh** and **PowerShell**. For Bash, Fish, Zsh the same prompt pattern has been used.
 
 At installation time, the user can choose between Bash, Fish and Zsh. However, Bash and PowerShell are installed by default.
 
 ## Bash
 
-[Bash](https://wiki.archlinux.org/title/bash) (Bourne-again Shell) is a command-line shell/programming language by the GNU Project. Bash is the default command-line shell on Athena OS. Here, Bash implements **autosuggestion** and **autocompletion** features in order to increase the user experience.
+[Bash](https://wiki.archlinux.org/title/bash) (Bourne-again Shell) is a command-line shell/programming language by the GNU Project. Bash is the default command-line shell on AxylOS. Here, Bash implements **autosuggestion** and **autocompletion** features in order to increase the user experience.
 
-Generally, Bash is not able to retrieve the new configuration on `.bashrc` automatically. For example, if the shell prompt changes due to a command, this change is not applied on the current shell session. Athena solved this, by adding the following line on `.bashrc`:
+Generally, Bash is not able to retrieve the new configuration on `.bashrc` automatically. For example, if the shell prompt changes due to a command, this change is not applied on the current shell session. AxylOS solved this, by adding the following line on `.bashrc`:
 ```
 export PROMPT_COMMAND='source ~/.bashrc no-repeat-flag'
 ```
@@ -44,18 +44,18 @@ precmd() { eval "$PROMPT_COMMAND" }
 export PROMPT_COMMAND='source ~/.zshrc no-repeat-flag'
 ```
 
-In Athena OS, Zsh implements **autosuggestion**, **globbing** and **autocompletion** features in order to increase the user experience.
+In AxylOS, Zsh implements **autosuggestion**, **globbing** and **autocompletion** features in order to increase the user experience.
 
 ## PowerShell
 [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) is a cross-platform task automation solution made up of a command-line shell, a scripting language, and a configuration management framework.
 
-In Athena OS, PowerShell has been implemented by adding a lot of useful modules that can improve the efficiency of the user activity.
+In AxylOS, PowerShell has been implemented by adding a lot of useful modules that can improve the efficiency of the user activity.
 
 ## Aliases
 
-On Bash, Fish and Zsh are set several shells defined in `~/.bash_aliases`. They can vary between Athena Arch and Athena Nix. The most useful aliases are:
+On Bash, Fish and Zsh are set several shells defined in `~/.bash_aliases`. They can vary between AxylOS Arch and AxylOS Nix. The most useful aliases are:
 
-| Keybind | Description | Athena Arch | Athena Nix |
+| Keybind | Description | AxylOS Arch | AxylOS Nix |
 | ------- | ----------- | ---- | ---- |
 | **anycommand \| tb** | Generate a link to a webpage containing the output of the piped command. | X | X |
 | **cleanup** | Cleanup orphaned packages. | X | X |

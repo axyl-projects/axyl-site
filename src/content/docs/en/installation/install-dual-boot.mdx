@@ -1,31 +1,31 @@
 ---
 title: Installing as dual boot with Linux or Windows
-description: How to install Athena OS as dual boot with Linux or Windows.
+description: How to install AxylOS as dual boot with Linux or Windows.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 
-The following section will guide you through the steps to install Athena OS as dual booth with Linux or Windows by covering all the possible choices you could set.
+The following section will guide you through the steps to install AxylOS as dual booth with Linux or Windows by covering all the possible choices you could set.
 
 ## Windows pre-settings
 
-In case you are installing Athena OS in dual boot with Windows, make sure that **Fast Startup** is disabled. For doing that on Windows, open **Control Panel** -> **Hardware and Sound** -> **Power Options** -> click on **Choose what the power buttons do** on the left side -> click on **Change Settings that are currently unavailable** on top (This will ask for administrator permissions) -> Unselect the **Turn on fast startup** option and click on **Save Changes** button.
+In case you are installing AxylOS in dual boot with Windows, make sure that **Fast Startup** is disabled. For doing that on Windows, open **Control Panel** -> **Hardware and Sound** -> **Power Options** -> click on **Choose what the power buttons do** on the left side -> click on **Change Settings that are currently unavailable** on top (This will ask for administrator permissions) -> Unselect the **Turn on fast startup** option and click on **Save Changes** button.
 
-# Install Athena OS as dual boot
+# Install AxylOS as dual boot
 
-Once prepared the setup as described in [Baremetal installation prepare](/en/installation/prepare-baremetal/), and rebooted the system with your plugged USB drive containing the Athena OS installation media, according to your boot mode (EFI or BIOS/Legacy), you will be shown:
+Once prepared the setup as described in [Baremetal installation prepare](/en/installation/prepare-baremetal/), and rebooted the system with your plugged USB drive containing the AxylOS installation media, according to your boot mode (EFI or BIOS/Legacy), you will be shown:
 
 ![EFI Boot](@assets/images/efi-boot.png)
 
-for **EFI boot**, select **Athena OS install medium** or:
+for **EFI boot**, select **AxylOS install medium** or:
 
 ![BIOS/Legacy Boot](@assets/images/bios-boot.png)
 
-for **BIOS/Legacy boot**, select **Boot Athena OS (x86_64, BIOS, open source)**.
+for **BIOS/Legacy boot**, select **Boot AxylOS (x86_64, BIOS, open source)**.
 
 ## Pre-installation
 
-If you are installing Athena OS along with Windows, you need to preserve the Microsoft bootloader files. We need to face the following scenario:
+If you are installing AxylOS along with Windows, you need to preserve the Microsoft bootloader files. We need to face the following scenario:
 * Format the existing boot partition: save Microsoft bootloader folder somewhere, format the boot partitition, and move Microsoft bootloader folder inside it.
 
 {/*
@@ -41,7 +41,7 @@ sudo mount /dev/nvme0n1p1 /mnt
 cp -rf /mnt/EFI/Microsoft ~/
 sudo umount /mnt
 ```
-it will save `Microsoft` folder in the `liveuser` home folder. We will restore it just after the Athena OS installation ends as explained later.
+it will save `Microsoft` folder in the `liveuser` home folder. We will restore it just after the AxylOS installation ends as explained later.
 
 {/*
 #### Remove conflicting files
@@ -50,7 +50,7 @@ If you won't format the existing boot partition, some existing files could confl
 Before running it, once you land on the Live Environment, open terminal and mount your existing boot partition (i.e., `/dev/nvme0n1p1`) and let's remove them:
 ```shell
 sudo mount /dev/nvme0n1p1 /mnt
-sudo rm -rf /mnt/memtest86+ /mnt/syslinux /mnt/*-ucode.img /mnt/grub/themes/athena*
+sudo rm -rf /mnt/memtest86+ /mnt/syslinux /mnt/*-ucode.img /mnt/grub/themes/AxylOS*
 sudo umount /mnt
 ```
 */}
@@ -89,7 +89,7 @@ If your system is UEFI, follow **EFI** section. If your system is BIOS-Legacy, s
 The example partition will appear like:
 ![Aegis TUI Partitioning Example Layout EFI](@assets/images/aegis-tui-partitioning-manual-layout-efi.png)
 
-Select the disk to work on. It is needed now to create the needed partitions for Athena OS. At label selection, select **gpt**.
+Select the disk to work on. It is needed now to create the needed partitions for AxylOS. At label selection, select **gpt**.
 
 ![Aegis TUI Partitioning Table EFI](@assets/images/aegis-tui-partitioning-manual-table-efi.png)
 
@@ -129,7 +129,7 @@ Continue to follow the [Partitioning Final Steps](/en/installation/install-dual-
 
 ![Aegis TUI Partitioning Example Layout Legacy](@assets/images/aegis-tui-partitioning-manual-layout-legacy.png)
 
-Select the disk to work on. It is needed now to create the needed partitions for Athena OS. At label selection, select **dos**.
+Select the disk to work on. It is needed now to create the needed partitions for AxylOS. At label selection, select **dos**.
 
 ![Aegis TUI Partitioning Table Legacy](@assets/images/aegis-tui-partitioning-manual-table-legacy.png)
 
@@ -176,7 +176,7 @@ Then, continue to follow the [Aegis TUI guide](/en/installation/aegis-tui/#parti
 {/*
 ## Calamares
 
-You can install Athena OS by three methods for dual boot: Install alongside, Replace a partition, Manual partitioning.
+You can install AxylOS by three methods for dual boot: Install alongside, Replace a partition, Manual partitioning.
 :::note
 Currently, the default file system that will be set for *Install alongside* and *Replace a partition* methods is BTRFS. BTRFS provides several interesting features as **snapshots** in order to rollback your system in case of fault. For changing default file system, you need to edit `/etc/calamares/modules/partition.conf` and replace the `btrfs` value by one of the available file systems. The value must be replaced in the line containing:
 ```
@@ -189,7 +189,7 @@ The available file systems are defined in the same file.
 
 ![Install alongside](@assets/images/calamares-partition-alongside.png)
 
-Look on the part with **Current** bar, select the Linux or Windows partition on the related colored bar and drag it until you get the needed disk space for Athena OS.
+Look on the part with **Current** bar, select the Linux or Windows partition on the related colored bar and drag it until you get the needed disk space for AxylOS.
 
 Select **Encrypt system** checkbox if you wish to encrypt your partition.
 :::caution
@@ -202,11 +202,11 @@ Click **Next** and proceed to the installation.
 
 If you don't like the first method, you can choose to create a partition by GParted.
 
-Once you land on the Live Environment, Athena Welcome will be shown. Click on **Run GParted** button for setting your disk. Depending on your existing setup, the disk structure could consist of:
+Once you land on the Live Environment, AxylOS Welcome will be shown. Click on **Run GParted** button for setting your disk. Depending on your existing setup, the disk structure could consist of:
 * Dedicated partitions for specified directories (i.e., `/home`, `/tmp` and `/var`)
 * Swap partition
 
-Let's guess you have an existing Linux or Windows OS on your endpoint. We need to use the free space of this existing partition to the one we will use for Athena OS.
+Let's guess you have an existing Linux or Windows OS on your endpoint. We need to use the free space of this existing partition to the one we will use for AxylOS.
 
 ![GParted](@assets/images/gparted.png)
 
@@ -225,7 +225,7 @@ On the appearing popup window, click on **Apply**.
 
 ![GParted Apply Confirmation](@assets/images/gparted-apply-confirm.png)
 
-Go back to Athena Welcome, and select `Offline Install` or `Online Install`, reach the **Partitions** section, check **Replace a partition** and on the **Current** bar, click on the colored partition where you want to install Athena OS.
+Go back to AxylOS Welcome, and select `Offline Install` or `Online Install`, reach the **Partitions** section, check **Replace a partition** and on the **Current** bar, click on the colored partition where you want to install AxylOS.
 
 ![Replace a partition](@assets/images/calamares-partition-replace.png)
 
@@ -261,16 +261,16 @@ You should:
   * Click OK
 
 You should have something like:
-![Manual Partitioning](https://github.com/Athena-OS/athena-iso/assets/83867734/26a729f2-ad8b-4dc7-b7af-9012b7e50464)
+![Manual Partitioning](https://github.com/AxylOS-OS/AxylOS-iso/assets/83867734/26a729f2-ad8b-4dc7-b7af-9012b7e50464)
 
 or, for encrypted data partition, like
 
-![Manual Partitioning Encryption](https://github.com/Athena-OS/athena-iso/assets/83867734/af97b518-c1ad-4716-b83f-d73f57112b96)
+![Manual Partitioning Encryption](https://github.com/AxylOS-OS/AxylOS-iso/assets/83867734/af97b518-c1ad-4716-b83f-d73f57112b96)
 
 Then click **Next**. You will get some warning messages, just click **OK** and run the installation.
 
 :::note
-We don't create a SWAP space because Athena OS uses [ZRAM](https://wiki.archlinux.org/title/Zram).
+We don't create a SWAP space because AxylOS uses [ZRAM](https://wiki.archlinux.org/title/Zram).
 :::
 
 :::tip

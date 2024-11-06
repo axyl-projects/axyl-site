@@ -1,11 +1,11 @@
 ---
 title: Installing as guest in VMware
-description: How to install Athena OS as as guest in VMware.
+description: How to install AxylOS as as guest in VMware.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 
-This chapter explains how to virtualize Athena OS inside of VMware in order to run Athena OS as virtual machine. This approach could be useful in case you would like to have a separated machine from the host that could also interact with other virtual machines, the host itself and other endpoints on the local network.
+This chapter explains how to virtualize AxylOS inside of VMware in order to run AxylOS as virtual machine. This approach could be useful in case you would like to have a separated machine from the host that could also interact with other virtual machines, the host itself and other endpoints on the local network.
 
 :::caution
 In order to use a virtual machine, make sure to enable virtualization in BIOS/UEFI.
@@ -74,8 +74,8 @@ sudo modprobe vmw_vmci
 sudo systemctl enable --now vmware-networks
 ```
 
-Finally, run the virtual machine and install Athena OS as explained in [Installing as single boot](/en/installation/install-single-boot/) chapter.
+Finally, run the virtual machine and install AxylOS as explained in [Installing as single boot](/en/installation/install-single-boot/) chapter.
 :::note
-Athena OS automatically recognizes if you are using a virtualized environment so you don't need to install VMware Tools because the system will do automatically for you during the OS installation.
+AxylOS automatically recognizes if you are using a virtualized environment so you don't need to install VMware Tools because the system will do automatically for you during the OS installation.
 :::
 <ImageComponent />

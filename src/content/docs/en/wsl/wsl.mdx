@@ -1,21 +1,21 @@
 ---
-title: Athena OS WSL Image
-description: Official Athena OS WSL image.
+title: AxylOS WSL Image
+description: Official AxylOS WSL image.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
 
 ## Installation
 
-Athena OS WSL image is based on Athena Arch and uses **pacman** as package manager.
+AxylOS WSL image is based on AxylOS Arch and uses **pacman** as package manager.
 
-Make sure WSL is enabled in you system by following [Microsoft documentation](https://learn.microsoft.com/en-us/windows/wsl/install). You can install Athena OS WSL from Microsoft Store.
+Make sure WSL is enabled in you system by following [Microsoft documentation](https://learn.microsoft.com/en-us/windows/wsl/install). You can install AxylOS WSL from Microsoft Store.
 
 <p align="center">
-  <a href="https://apps.microsoft.com/store/detail/athena-os/9N1M7Q4F1KQF?hl=en-us&gl=us"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" width="250" height="90" /></a>
+  <a href="https://apps.microsoft.com/store/detail/AxylOS-os/9N1M7Q4F1KQF?hl=en-us&gl=us"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" width="250" height="90" /></a>
 </p>
 <h5 align="center">
-Click the icon above to explore Athena OS WSL in Microsoft Store App!
+Click the icon above to explore AxylOS WSL in Microsoft Store App!
 </h5>
 
 After installation is complete from Microsoft Store, when you open the app, you will be presented with a screen to create a user account. Go ahead with it and complete the account creation to finish installation.
@@ -27,18 +27,18 @@ The password entering field does not display your password but it still records 
 
 ## Win-KeX
 
-**Win-KeX** allows you to enjoy a GUI experience on Athena OS. It is based on Kali Linux Win-KeX adapted for systemd. You can work in three modes:
-* **Window mode**: start a Athena OS desktop in a dedicated window
+**Win-KeX** allows you to enjoy a GUI experience on AxylOS. It is based on Kali Linux Win-KeX adapted for systemd. You can work in three modes:
+* **Window mode**: start a AxylOS desktop in a dedicated window
 * **Enhanced session mode**: use RDP for a more feature rich experience
-* **Seamless mode**: share the Windows desktop between Windows and Athena XFCE application and menus
+* **Seamless mode**: share the Windows desktop between Windows and AxylOS XFCE application and menus
 
 ### Window Mode
 
 ![WSL Window Mode](@assets/images/wsl-win.png)
 
-It sets a VNC server and run a VNC client in order to get a fullscreen GUI environment of Athena OS directly on your Windows.
+It sets a VNC server and run a VNC client in order to get a fullscreen GUI environment of AxylOS directly on your Windows.
 
-You can run KeX in Window Mode by running inside of Athena WSL:
+You can run KeX in Window Mode by running inside of AxylOS WSL:
 ```shell
 kex --win -s
 ```
@@ -49,9 +49,9 @@ Kali docs has a well documented page about Win-Kex Window Mode. Visit [Win-KeX W
 
 ![WSL Enhanced Session Mode](@assets/images/wsl-esm.png)
 
-It sets a RDP server and run a RDP client in order to get a fullscreen GUI environment of Athena OS directly on your Windows.
+It sets a RDP server and run a RDP client in order to get a fullscreen GUI environment of AxylOS directly on your Windows.
 
-You can run KeX in Enhanced Session Mode by running inside of Athena WSL:
+You can run KeX in Enhanced Session Mode by running inside of AxylOS WSL:
 ```shell
 kex --esm --ip -s
 ```
@@ -62,9 +62,9 @@ Kali docs has a well documented page about Win-Kex Enhanced Session Mode. Visit 
 
 ![WSL Enhanced Session Mode](@assets/images/wsl-sl.png)
 
-It sets a VNC server and places in Windows desktop applications and elements of Athena OS XFCE environment.
+It sets a VNC server and places in Windows desktop applications and elements of AxylOS XFCE environment.
 
-You can run KeX in Seamless Mode by running inside of Athena WSL:
+You can run KeX in Seamless Mode by running inside of AxylOS WSL:
 ```shell
 kex --sl -s
 ```
@@ -73,7 +73,7 @@ Kali docs has a well documented page about Win-Kex Seamless Mode. Visit [Win-KeX
 
 ## Getting Started
 
-When you start Athena OS WSL, it is a best practice to use the fastest mirrors for your location and update all the packages. To do this, run:
+When you start AxylOS WSL, it is a best practice to use the fastest mirrors for your location and update all the packages. To do this, run:
 ```shell
 mirrorxx
 sudo rate-mirrors --concurrency 40 --allow-root --disable-comments --save /etc/pacman.d/chaotic-mirrorlist chaotic-aur

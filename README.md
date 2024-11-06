@@ -1,4 +1,4 @@
-# Athena Docs
+# AxylOS Docs
 Made with Starlight(Astro).
 
 ## 🚀 Project Structure

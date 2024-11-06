@@ -1,6 +1,6 @@
 ---
 title: Installing as guest in Quickemu
-description: How to install Athena OS as as guest in Quickemu.
+description: How to install AxylOS as as guest in Quickemu.
 ---
 import ImageComponent from "@components/ImageComponent.astro";
 import ThemedImage from '@components/ThemedImage.astro';
@@ -15,14 +15,14 @@ You can install Quickemu in your host as described in the [official documentatio
 If you are installing `quickemu` on an Arch-based machine, install `qemu-desktop` or `qemu-full` as dependency.
 :::
 
-Once Quickemu is installed, there are two simple steps to create and run Athena OS:
-* **quickget** automatically downloads the ISO image for Athena OS and creates a configuration file for the virtual machine:
+Once Quickemu is installed, there are two simple steps to create and run AxylOS:
+* **quickget** automatically downloads the ISO image for AxylOS and creates a configuration file for the virtual machine:
   ```shell
-  quickget athenaos v23.11
+  quickget AxylOSos v23.11
   ```
 * **quickemu** starts the virtual machine using the configuration file created by `quickget`:
   ```shell
-  quickemu --vm athenaos-v23.11.conf
+  quickemu --vm AxylOSos-v23.11.conf
   ```
 :::tip
 If your host is a Linux or MacOS virtual machine, you need nested virtualization by **Intel VT-x/EPT** or **AMD-V/RVI**. To enable it, be sure that virtualization is enabled on your BIOS. If this Linux or MacOS virtual machine where to install Quickemu is running on a Windows host, disable Hyper-V by searching and opening *Turn Windows features on and off* and uncheck *Hyper-V* entry. Open CMD as Administrator and run:

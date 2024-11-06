@@ -21,17 +21,17 @@ is caused when the partition table is GPT and you are not using EFI boot mode. I
 
 #### time warp or clock problem
 
-During the installation of Athena, if you get an error like:
+During the installation of AxylOS, if you get an error like:
 ```
 gpg: key <keyid> was created 3474 seconds in the future (time warp or clock problem)
 ```
-it can occur when you are installing Athena OS by an ISO that has been released just now. To solve the issue, just wait 30 minutes and boot again by the ISO.
+it can occur when you are installing AxylOS by an ISO that has been released just now. To solve the issue, just wait 30 minutes and boot again by the ISO.
 
 The cause of the issue is due to a key in `/etc/pacman.d/gnupg` that has been generated in a Live Environment that has a different time of the running installer. Since in Live Environment the time changes and fixes to the right time after some minutes, if this change is done during the running of `pacman-key --init`, it causes that error. For example, the Live Environment shows 18:40 and during the install, it switches to 19:40, so the running installer, if creates new key by `pacman-key --init` when the time of Live Environment is switched, it cause the error. If you get this error, boot on Live Environment and, before to run the installer, wait for some minutes that the time clock fixes automatically.
 
 #### Nix install process killed
 
-If Athena Nix installation is killed and the following error is produced:
+If AxylOS Nix installation is killed and the following error is produced:
 ```
 [ INFO ] 17:45:48 /nix/store/2ig2gxwx3xzavg43s6x17ym520la6d5w-nixos-install-tools-24.05pre604424.d8fe5e6c92d0/bin/nixos-install: line 178:  6209 Killed                  nix-build --out-link "$outLink" --store "$mountPoint" "${extraBuildFlags[@]}" --extra-substituters "$sub" '<nixpkgs/nixos>' -A system -I "nixos-config=$NIXOS_CONFIG" "${verbosity[@]}"
 
@@ -48,16 +48,16 @@ just assign more resources (CPU, RAM, Swap space) to your system.
 
 #### Login freeze at ISO Live boot
 
-By running ISO, at boot, if login prompt freezes, reboot and select the boot entry called **"Athena OS install medium (%ARCH%, UEFI, safe graphics, nomodeset)"**. The problem was caused by `nouveau.modeset=1` for some specific NVIDIA hardware.
+By running ISO, at boot, if login prompt freezes, reboot and select the boot entry called **"AxylOS install medium (%ARCH%, UEFI, safe graphics, nomodeset)"**. The problem was caused by `nouveau.modeset=1` for some specific NVIDIA hardware.
 
 #### Error: file '/vmlinuz-linux-lts' not found
 
 If, after a system update, you get the following error at boot:
-![Athena Snapshots Run](@assets/images/error-boot-missing-vmlinuz.png)
+![AxylOS Snapshots Run](@assets/images/error-boot-missing-vmlinuz.png)
 
 it is probably caused by a wrong update of the Linux kernel or the boot partition was not correctly mounted during this process, or due to an interruption (freeze, reboot or shutdown) during the upgrade of the system (in particular, during the generation of the image at kernel upgrade process time).
 
-To fix it, boot in a Live Environment by Athena ISO, open the terminal and run the following commands:
+To fix it, boot in a Live Environment by AxylOS ISO, open the terminal and run the following commands:
 
 <Tabs>
 <TabItem label="Btrfs root filesystem">
@@ -147,7 +147,7 @@ If you are in dual boot along Windows, don't delete the `Microsoft` folder insid
 
 Once reboot, access to your BIOS and be sure that `GRUB` entry has the highest priority on UEFI Boot Priority section.
 
-Finally, in case Windows entry disappeared, land on the installed Athena system, open a terminal and run:
+Finally, in case Windows entry disappeared, land on the installed AxylOS system, open a terminal and run:
 ```
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -211,11 +211,11 @@ grub-install --force --target=i386-pc --recheck --boot-directory=/boot /dev/nvme
 ```
 Note that, `/dev/nvme0n1` must be the disk containing the boot partition, not the boot partition itself.
 
-Finally, for fixing also the Linux access, burn Athena OS ISO on a USB and follow the steps explained at [Post-installation](/en/installation/install-persistent-usb/#post-installation) section.
+Finally, for fixing also the Linux access, burn AxylOS ISO on a USB and follow the steps explained at [Post-installation](/en/installation/install-persistent-usb/#post-installation) section.
 
 #### Several boot entries have been disappeared
 
-In case you are in dual boot and some entries are not shown anymore (i.e., Windows Boot Manager if you have Windows in dual boot), enter in Athena OS and run:
+In case you are in dual boot and some entries are not shown anymore (i.e., Windows Boot Manager if you have Windows in dual boot), enter in AxylOS and run:
 ```shell
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -232,7 +232,7 @@ Reference: [#99](https://github.com/legionus/kbd/issues/99)
 
 #### Blinking cursor after boot
 
-After an upgrade of your system, when you boot, after the GRUB choice, if you get only a blinking cursor, the issue could be related to the upgrade of some components that could break your system boot. To solve this issue, mount an Athena ISO to your computer to enter in a Live Environment, mount to `&mnt` the partition where your original system was installed and run:
+After an upgrade of your system, when you boot, after the GRUB choice, if you get only a blinking cursor, the issue could be related to the upgrade of some components that could break your system boot. To solve this issue, mount an AxylOS ISO to your computer to enter in a Live Environment, mount to `&mnt` the partition where your original system was installed and run:
 ```shell
 sudo arch-chroot /mnt
 ```
@@ -241,15 +241,15 @@ After that, downgrade the affected components, for example you can try with the 
 pacman -Rnsd --nodeps <yourkernel> <yourkernel>-headers
 pacman -S linux-lts linux-lts-headers
 ```
-If you boot, and you are able to get some output log strings and you reach another different blinking cursor, press `CTRL+ALT+Fx` (where `x` can be 2, 3, 4, and so on) to perform more troubleshooting. 
+If you boot, and you are able to get some output log strings and you reach another different blinking cursor, press `CTRL+ALT+Fx` (where `x` can be 2, 3, 4, and so on) to perform more troubleshooting.
 
 ### Display Managers
 
 #### GDM: login background turned to grey
 
-It should be caused by an update of GDM or GNOME packages that restored the default gresource theme file. To restore the Athena GDM theme, run:
+It should be caused by an update of GDM or GNOME packages that restored the default gresource theme file. To restore the AxylOS GDM theme, run:
 ```shell
-sudo pacman -S athena-gdm-config
+sudo pacman -S AxylOS-gdm-config
 ```
 
 ### Tools
@@ -288,16 +288,16 @@ conda activate $CONDA_DEFAULT_ENV
 ### WSL
 
 #### Win-Kex ESM Mode 'cannot execute: required file not found'
-This issue affects both Athena OS and Kali Linux. When you run `kex --esm` and you get:
+This issue affects both AxylOS and Kali Linux. When you run `kex --esm` and you get:
 ```
 /usr/bin/kex: line 389: /mnt/c/Windows/system32/cmdkey.exe: cannot execute: required file not found
 /usr/bin/kex: line 490: /mnt/c/Windows/system32/mstsc.exe: cannot execute: required file not found
 ```
 it could be due to two reasons:
 1. wine is installed
-2. you are running Athena OS and Kali Linux WSL together
+2. you are running AxylOS and Kali Linux WSL together
 
-Uninstall wine package, close both the WSL sessions, open CMD in Windows and run `wsl --shutdown`. Run Athena OS and you should not get this error anymore.
+Uninstall wine package, close both the WSL sessions, open CMD in Windows and run `wsl --shutdown`. Run AxylOS and you should not get this error anymore.
 
 #### Win-Kex ESM Mode 'Remote Desktop can't connect'
 In case you get the following error:
@@ -307,7 +307,7 @@ just open a new Windows terminal and run:
 ```shell
 wsl --shutdown
 ```
-Then, reopen Athena OS WSL and try to run again:
+Then, reopen AxylOS WSL and try to run again:
 ```shell
 kex --esm --ip -s
 ```
@@ -330,7 +330,7 @@ If you are experiencing an intermittent freezing on your environment, and you ar
 In case it occurs that browser elements can overlap as the following case:
 ![Website Overlapping](@assets/images/website-overlapping.png)
 
-The reason is that the website is using the Athena OS system font instead of using its one.
+The reason is that the website is using the AxylOS system font instead of using its one.
 
 In case you would like to solve this behavior on the system side, you need to delete the entry `font-name='JetBrains Mono 11'` set in **/org/gnome/desktop/** or changing its font.
 :::caution
@@ -347,23 +347,23 @@ cat fix.txt | dconf load /org/gnome/desktop/
 ```
 In case your theme will be reset, just run:
 ```shell
-athena-theme-tweak -t <name of your favourite theme>
+AxylOS-theme-tweak -t <name of your favourite theme>
 ```
-Use `athena-theme-tweak -l` to get the list of themes to be chosen.
+Use `AxylOS-theme-tweak -l` to get the list of themes to be chosen.
 
 #### Restore system by snapshots in GRUB
 
-In case you are not able to get in the system due to a broken upgrade or similar events, you can leverage on Grub BTRFS snapshots in order to restore a previous state of your system. To do this, run the system, on the GRUB select **Athena OS Snapshots**
+In case you are not able to get in the system due to a broken upgrade or similar events, you can leverage on Grub BTRFS snapshots in order to restore a previous state of your system. To do this, run the system, on the GRUB select **AxylOS Snapshots**
 
-![Athena Snapshots](@assets/images/athena-snapshots.png)
+![AxylOS Snapshots](@assets/images/AxylOS-snapshots.png)
 
 Choose the **snapshot** you want to restore
 
-![Athena Snapshots Selection](@assets/images/athena-snapshots-selection.png)
+![AxylOS Snapshots Selection](@assets/images/AxylOS-snapshots-selection.png)
 
 and select the **Linux Kernel** to run
 
-![Athena Snapshots Run](@assets/images/athena-snapshots-run.png)
+![AxylOS Snapshots Run](@assets/images/AxylOS-snapshots-run.png)
 
 #### Cannot store HTB App Token due to secret-tool hanging
 
