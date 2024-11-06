@@ -39,83 +39,149 @@ export default defineConfig({
           items: [
             // Each item here is one entry in the navigation menu.
             { label: "Manifesto", link: "/en/getting-started/manifesto" },
-            { label: "Why AxylOS?", link: "/en/getting-started/athenaos" },
+            { label: "Why AxylOS?", link: "/en/getting-started/axylos" },
             {
               label: "Downloading AxylOS",
               link: "/en/getting-started/download",
             },
           ],
         },
-        //{
-        //  label: 'Installation',
-        //  items: [
-        // Each item here is one entry in the navigation menu.
-        //   { label: 'Installation prepare', link: '/en/installation/prepare-install' },
-        //    { label: 'Installing as single boot', link: '/en/installation/install-single-boot' },
-        //    { label: 'Installing as dual boot with Linux or Windows', link: '/en/installation/install-dual-boot' },
-        //    { label: 'Installing by NixOS', link: '/en/installation/install-nixos' },
-        //    { label: 'Installing as persistent USB', link: '/en/installation/install-persistent-usb' },
-        //    { label: 'Installing as guest in VMware', link: '/en/installation/install-guest-vmware' },
-        //    { label: 'Installing as guest in VirtualBox', link: '/en/installation/install-guest-virtualbox' },
-        //    { label: 'Installing as guest in Hyper-V', link: '/en/installation/install-guest-hyperv' },
-        //    { label: 'Installing as guest in QEMU/KVM', link: '/en/installation/install-guest-qemu' },
-        //    { label: 'Installing as guest in Quickemu', link: '/en/installation/install-guest-quickemu' },
-        //    { label: 'Installing as guest in Parallels', link: '/en/installation/install-guest-parallels' },
-        //    { label: 'Installing as guest in UTM', link: '/en/installation/install-guest-utm' },
-        //    { label: 'Updating Athena OS', link: '/en/installation/update-athena' },
-        //    { label: 'Aegis Installer TUI', link: '/en/installation/aegis-tui' },
-        //  ],
-        //},
-        //{
-        //  label: 'Configuration',
-        //  items: [
-        // Each item here is one entry in the navigation menu.
-        //    { label: 'Athena Nix', link: '/en/configuration/nix-config' },
-        // { label: 'Calamares Installer', link: '/en/configuration/calamares' },
-        //    { label: 'Kernel', link: '/en/configuration/kernel' },
-        //    { label: 'Shell', link: '/en/configuration/shell' },
-        //    { label: 'Display Manager', link: '/en/configuration/display-manager' },
-        //    { label: 'GNOME', link: '/en/configuration/gnome' },
-        //    { label: 'Bspwm', link: '/en/configuration/bspwm' },
-        //    { label: 'KDE Plasma', link: '/en/configuration/kde' },
-        //    { label: 'MATE', link: '/en/configuration/mate' },
-        //    { label: 'Cinnamon', link: '/en/configuration/cinnamon' },
-        //    { label: 'XFCE', link: '/en/configuration/xfce' },
-        //    { label: 'Hyprland', link: '/en/configuration/hyprland' },
-        //    { label: 'NVIDIA GPU', link: '/en/configuration/nvidia' },
-        //    { label: 'RDP', link: '/en/configuration/rdp' },
-        //    { label: 'Repositories', link: '/en/configuration/repositories' },
-        //    { label: 'Themes', link: '/en/configuration/themes' },
-        //    { label: 'Utilities', link: '/en/configuration/utilities' },
-        //  ],
-        //},
-        //{
-        //  label: 'Cyber Resources',
-        //  items: [
-        // Each item here is one entry in the navigation menu.
-        //    { label: 'Athena Welcome', link: '/en/resources/athena-welcome' },
-        //    { label: 'Pentesting Tools', link: '/en/resources/pentesting-tools' },
-        //    { label: 'Athena Cyber Hub', link: '/en/resources/cyber-hub' },
-        //    { label: 'Hack The Box Toolkit', link: '/en/resources/htb-toolkit' },
-        //    { label: 'PWNage Menu', link: '/en/resources/pwnage-menu' },
-        //    { label: 'Blue Team Menu', link: '/en/resources/blueteam-menu' },
-        //    { label: 'Red Team Menu', link: '/en/resources/redteam-menu' },
-        //    { label: 'Payload to Dock', link: '/en/resources/payload-dock' },
-        //    { label: 'Payload Environment Variables', link: '/en/resources/payload-variables' },
-        //    { label: 'Browser Pentesting Resources', link: '/en/resources/browser-pentesting' },
-        //    { label: 'NIST Feed', link: '/en/resources/nist-feed' },
-        //    { label: 'Devotio', link: '/en/resources/devotio' },
-        //   ],
-        //},
-        //{
-        //  label: 'Customization',
-        //  items: [
-        //    // Each item here is one entry in the navigation menu.
-        //    { label: 'Customizing Shells', link: '/en/customization/shell' },
-        //    { label: 'Customizing Display Managers', link: '/en/customization/display-manager' },
-        //    { label: 'Customizing Terminal Tools', link: '/en/customization/terminal-tools' },
-        //  ],
-        //},
+        {
+          label: "Installation",
+          items: [
+            // Each item here is one entry in the navigation menu.
+            {
+              label: "Installation prepare",
+              link: "/en/installation/prepare-install",
+            },
+            {
+              label: "Installing as single boot",
+              link: "/en/installation/install-single-boot",
+            },
+            {
+              label: "Installing as dual boot with Linux or Windows",
+              link: "/en/installation/install-dual-boot",
+            },
+            {
+              label: "Installing by NixOS",
+              link: "/en/installation/install-nixos",
+            },
+            {
+              label: "Installing as persistent USB",
+              link: "/en/installation/install-persistent-usb",
+            },
+            {
+              label: "Installing as guest in VMware",
+              link: "/en/installation/install-guest-vmware",
+            },
+            {
+              label: "Installing as guest in VirtualBox",
+              link: "/en/installation/install-guest-virtualbox",
+            },
+            {
+              label: "Installing as guest in Hyper-V",
+              link: "/en/installation/install-guest-hyperv",
+            },
+            {
+              label: "Installing as guest in QEMU/KVM",
+              link: "/en/installation/install-guest-qemu",
+            },
+            {
+              label: "Installing as guest in Quickemu",
+              link: "/en/installation/install-guest-quickemu",
+            },
+            {
+              label: "Installing as guest in Parallels",
+              link: "/en/installation/install-guest-parallels",
+            },
+            {
+              label: "Installing as guest in UTM",
+              link: "/en/installation/install-guest-utm",
+            },
+            {
+              label: "Updating Athena OS",
+              link: "/en/installation/update-athena",
+            },
+            {
+              label: "Aegis Installer TUI",
+              link: "/en/installation/aegis-tui",
+            },
+          ],
+        },
+        {
+          label: "Configuration",
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: "Athena Nix", link: "/en/configuration/nix-config" },
+            {
+              label: "Calamares Installer",
+              link: "/en/configuration/calamares",
+            },
+            { label: "Kernel", link: "/en/configuration/kernel" },
+            { label: "Shell", link: "/en/configuration/shell" },
+            {
+              label: "Display Manager",
+              link: "/en/configuration/display-manager",
+            },
+            { label: "GNOME", link: "/en/configuration/gnome" },
+            { label: "Bspwm", link: "/en/configuration/bspwm" },
+            { label: "KDE Plasma", link: "/en/configuration/kde" },
+            { label: "MATE", link: "/en/configuration/mate" },
+            { label: "Cinnamon", link: "/en/configuration/cinnamon" },
+            { label: "XFCE", link: "/en/configuration/xfce" },
+            { label: "Hyprland", link: "/en/configuration/hyprland" },
+            { label: "NVIDIA GPU", link: "/en/configuration/nvidia" },
+            { label: "RDP", link: "/en/configuration/rdp" },
+            { label: "Repositories", link: "/en/configuration/repositories" },
+            { label: "Themes", link: "/en/configuration/themes" },
+            { label: "Utilities", link: "/en/configuration/utilities" },
+          ],
+        },
+        {
+          label: "Cyber Resources",
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: "Athena Welcome", link: "/en/resources/athena-welcome" },
+            {
+              label: "Pentesting Tools",
+              link: "/en/resources/pentesting-tools",
+            },
+            { label: "Athena Cyber Hub", link: "/en/resources/cyber-hub" },
+            {
+              label: "Hack The Box Toolkit",
+              link: "/en/resources/htb-toolkit",
+            },
+            { label: "PWNage Menu", link: "/en/resources/pwnage-menu" },
+            { label: "Blue Team Menu", link: "/en/resources/blueteam-menu" },
+            { label: "Red Team Menu", link: "/en/resources/redteam-menu" },
+            { label: "Payload to Dock", link: "/en/resources/payload-dock" },
+            {
+              label: "Payload Environment Variables",
+              link: "/en/resources/payload-variables",
+            },
+            {
+              label: "Browser Pentesting Resources",
+              link: "/en/resources/browser-pentesting",
+            },
+            { label: "NIST Feed", link: "/en/resources/nist-feed" },
+            { label: "Devotio", link: "/en/resources/devotio" },
+          ],
+        },
+        {
+          label: "Customization",
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: "Customizing Shells", link: "/en/customization/shell" },
+            {
+              label: "Customizing Display Managers",
+              link: "/en/customization/display-manager",
+            },
+            {
+              label: "Customizing Terminal Tools",
+              link: "/en/customization/terminal-tools",
+            },
+          ],
+        },
         {
           label: "Containers",
           items: [
